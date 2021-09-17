@@ -1,0 +1,69 @@
+.body {
+    width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.header {
+    height: 110px;
+    background: rgba(30, 9, 6, 0.15);
+    display: flex;
+    position: relative;
+}
+
+.header::before {
+    content: '';
+    width: 1020px;
+    height: 300px;
+    position: absolute;
+    background-image: url('../../img/header-guitar.png');
+    top: 72px;
+}
+
+.header__logo {
+    width: 67px;
+    height: 70px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.header__list-link {
+    display: flex;
+    list-style-type: none;
+    margin-left: 75px;
+    margin-top: 45px;
+    width: 470px;
+    justify-content: space-between;
+}
+
+.list-link__item {
+    text-decoration: none;
+    color: black;
+    font-family: 'Droid Sans';
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+
+.header__list-icon {
+    display: flex;
+    list-style-type: none;
+    margin-top: 47px;
+    margin-left: 117px;
+    justify-content: space-between;
+    width: 112px;
+    position: relative;
+}
+
+.list-icon__text {
+    font-family: 'Droid Sans';
+    font-size: 10px;
+    line-height: 12px;
+    color: #F20505;
+    position: absolute;
+    top: -3px;
+    left: 156px;
+}

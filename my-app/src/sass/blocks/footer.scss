@@ -1,0 +1,140 @@
+.foo {
+    height: 1543px;
+}
+
+.footer {
+    width: 1020px;
+    height: 273px;
+    background: #3F3F3F;
+    display: flex;
+    position: relative;
+}
+
+.footer__logo {
+    width: 67px;
+    height: 70px;
+    margin-top: 61px;
+    margin-left: 41px;
+}
+
+.footer__social {
+    position: absolute;
+    display: flex;
+    list-style-type: none;
+    opacity: 0.7;
+    top: 170px;
+    width: 119px;
+    justify-content: space-between;
+}
+
+.footer__list {
+    display: flex;
+    list-style-type: none;
+    margin-top: 67px;
+    padding: 0;
+}
+
+.footer-list__headline, .footer-address__headline {
+    font-family: 'Droid Sans';
+    font-size: 14px;
+    line-height: 44px;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+    opacity: 0.7;
+}
+
+.footer-list__list, .footer__address {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-list__item, .footer-address__item {
+    font-family: 'Droid Sans';
+    font-size: 10px;
+    line-height: 12px;
+    color: #FFFFFF;
+    width: 142px;
+    margin-left: -1px;
+    letter-spacing: 0.02em;
+}
+
+.footer-list__item--letter {
+    letter-spacing: 0.13em;
+}
+
+.footer-list__item--margin {
+    margin-top: 12px;
+}
+
+.footer-list__conteiner-benefits {
+    margin-left: 174px;
+}
+
+.footer-list__conteiner-range {
+    margin-left: 18px;
+}
+
+.footer-list__range {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 93px;
+}
+
+.footer-list__conteiner-info {
+    margin-left: 22px;
+    margin-top: 1px;
+}
+
+.footer-list__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 93px;
+}
+
+.footer__address {
+    margin-top: 68px;
+    margin-left: 95px;
+}
+
+.footer-address__item--height {
+    letter-spacing: 0.13em;
+    line-height: 12px;
+    margin-top: -3px;
+    margin-left: 0px;
+    width: 129px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-address__item--margin {
+    margin-top: 12px;
+}
+
+.footer-address__telephon, .footer-address__time {
+    padding-left: 15px;
+    padding-top: 2px;
+    letter-spacing: 0.1em;
+    position: relative;
+}
+
+.footer-address__telephon::before {
+    content: '';
+    position: absolute;
+    background-image: url('../../img/telephone.svg');
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    left: 0px;
+}
+
+.footer-address__time::before {
+    content: '';
+    position: absolute;
+    background-image: url('../../img/time.svg');
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    left: 0px;
+}
