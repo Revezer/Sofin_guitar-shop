@@ -1,13 +1,18 @@
-.foo {
-    height: 1543px;
-}
-
 .footer {
     width: 1020px;
     height: 273px;
     background: #3F3F3F;
     display: flex;
     position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    background-image: url('../../img/footer-guitar.png');
+    width: 1020px;
+    height: 85px;
+    bottom: 273px;
 }
 
 .footer__logo {

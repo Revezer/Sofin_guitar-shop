@@ -1,0 +1,99 @@
+.filter__title {
+    font-family: 'Droid Sans bolt';
+    font-size: 18px;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 29px;
+    border-bottom: 0.7px solid #DDDADA;
+}
+
+.filter__money-subtitle {
+    margin-top: 30px;
+    font-family: 'Droid Sans bolt';
+    font-size: 18px;
+}
+
+.filter__input-conteiner {
+    display: flex;
+    border-bottom: 0.7px solid #DDDADA;
+    margin-top: 25px;
+    padding-bottom: 29px;
+    justify-content: space-between;
+}
+
+.filter__money-input {
+    width: 84px;
+    height: 28px;
+    border: 0.7px solid #9F9E9E;
+    box-sizing: border-box;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.filter__type-subtitle {
+    font-family: 'Droid Sans bolt';
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.filter__inputs-type {
+    display: flex;
+    flex-direction: column;
+    margin-top: 26px;
+    margin-left: 41px;
+    justify-content: space-between;
+    height: 91px;
+}
+
+.filter__input-type {
+    display: none;
+}
+
+.filter__type-text {
+    font-family: 'Droid Sans';
+    font-size: 16px;
+    letter-spacing: 0.4px;
+}
+
+.filter__type-conteiner {
+    border-bottom: 0.7px solid #DDDADA;
+    padding-bottom: 32px;
+}
+
+.filter__amount-subtitle {
+    font-family: 'Droid Sans bolt';
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.filter__inputs-amount {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-top: 28px;
+    height: 126px;
+}
+
+.filter__input-amount {
+    display: none;
+}
+
+.filter__amount-text {
+    font-family: 'Droid Sans';
+    font-size: 16px;
+}
+
+.filter__button {
+    margin-top: 42px;
+    width: 120px;
+    height: 30px;
+    border: none;
+    background: #C1C1C1;
+    border-radius: 2px;
+    font-family: 'Droid Sans bolt';
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}

@@ -1,0 +1,37 @@
+.sorting__title {
+    font-family: 'Droid Sans';
+    font-size: 16px;
+    letter-spacing: 1.3px;
+}
+
+.sorting__button-money {
+    background-color: white;
+    border: none;
+    font-family: 'Droid Sans';
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-left: 15px;
+}
+
+.sorting__button-popularity {
+    background-color: white;
+    border: none;
+    font-family: 'Droid Sans';
+    font-size: 16px;
+    letter-spacing: 1.2px;
+    margin-left: 27px;
+    margin-top: 1px;
+}
+
+.sorting__button-up {
+    width: 22px;
+    height: 22px;
+    margin-left: 253px;
+    background-image: url('../../img/icon_arrow-up.svg');
+}
+
+.sorting__button-down {
+    width: 22px;
+    height: 22px;
+    background-image: url('../../img/icon_arrow-down.svg');
+}

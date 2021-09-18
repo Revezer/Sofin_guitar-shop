@@ -1,0 +1,61 @@
+.main {
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.main__conteiner {
+    display: grid;
+    grid-template-columns: 208px 700px;
+    grid-template-rows: 22px 972px;
+    grid-template-areas: 
+        'filters sorting'
+        'filters catalog';
+    grid-column-gap: 32px;
+    grid-row-gap: 29px;
+    margin-left: 40px;
+    margin-top: 49px;
+}
+
+.maint__filter {
+    grid-area: filters;
+}
+
+.main__sorting {
+    grid-area: sorting;
+}
+
+.main__catalog {
+    background-color: blue;
+    grid-area: catalog;
+}
+
+.main__title {
+    font-family: 'Droid Sans bolt';
+    font-size: 22px;
+    line-height: 26px;
+    margin-left: 40px;
+    margin-top: 13px;
+    margin-bottom: 20px;
+}
+
+.main__text {
+    font-family: 'Droid Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #474747;
+    margin-left: 42px;
+    position: relative;
+}
+
+.main__text--arrow::before {
+    content: '';
+    position: absolute;
+    background-image: url('../../img/arrow-right.svg');
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    left: 72px;
+    top: 3px;
+}
