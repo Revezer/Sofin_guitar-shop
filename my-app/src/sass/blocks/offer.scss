@@ -1,0 +1,79 @@
+.offer {
+    border: 1px solid #DDDADA;
+    box-sizing: border-box;
+}
+
+.offer__img {
+    margin-left: auto;
+    margin-top: 12px;
+    width: 68px;
+    height: 190px;
+    margin-right: auto;
+    display: block;
+}
+
+.offer__stars {
+    margin-left: 13px;
+    margin-top: 9px;
+    display: flex;
+}
+
+.offer__number {
+    font-family: 'Poppins';
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #9F9E9E;
+    display: block;
+    margin-top: 1px;
+    margin-left: 5px;
+}
+
+.offer__text-conteiner {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Droid Sans';
+    font-size: 14px;
+    letter-spacing: 1px;
+    width: 192px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7px;
+}
+
+.offer__button-conteiner {
+    display: flex;
+    justify-content: space-between;
+    width: 192px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 13px;
+}
+
+.offer__info {
+    border: none;
+    background: #C1C1C1;
+    border-radius: 2px;
+    font-family: 'Droid Sans bolt';
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    width: 89px;
+    height: 23px;
+}
+
+.offer__buy {
+    border: none;
+    background: #E27F00;
+    border-radius: 2px;
+    font-family: 'Droid Sans bolt';
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    width: 87px;
+    height: 23px;
+}
+
+.offer__buy-icon {
+    margin-top: 3px;
+    margin-right: 6px;
+}

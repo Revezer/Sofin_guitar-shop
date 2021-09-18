@@ -25,8 +25,12 @@
 }
 
 .main__catalog {
-    background-color: blue;
     grid-area: catalog;
+    display: grid;
+    grid-template-columns: 220px 220px 220px;
+    grid-column-gap: 20px;
+    grid-template-rows: 304px 304px 304px;
+    grid-row-gap: 30px;
 }
 
 .main__title {

@@ -27,11 +27,15 @@
     width: 22px;
     height: 22px;
     margin-left: 253px;
-    background-image: url('../../img/icon_arrow-up.svg');
+    background-color: white;
+    border: none;
+    // background-image: url('../../img/arrow-up.svg');
 }
 
 .sorting__button-down {
     width: 22px;
     height: 22px;
-    background-image: url('../../img/icon_arrow-down.svg');
+    background-color: white;
+    border: none;
+    // background-image: url('../../img/arrow-down.svg');
 }

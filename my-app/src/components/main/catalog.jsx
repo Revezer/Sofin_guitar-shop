@@ -1,8 +1,12 @@
 import React from 'react'
 import FilterComponent from './filter'
+import OfferComponent from './offer'
 import SortingComponent from './sorting'
+import {connect} from 'react-redux'
 
-const Catalog = () => {
+const Catalog = (props) => {
+    const {offers} = props
+    
     return(
         <main className='main'>
             <h1 className='main__title'>Каталог гитар</h1>
@@ -11,12 +15,24 @@ const Catalog = () => {
             <div className='main__conteiner'>
                 <FilterComponent/>
                 <SortingComponent/>
-                <div className='main__catalog'>
-
+                <div className='main__catalog catalog'>
+                    {
+                        offers.map((offer, index) => <OfferComponent key={offer + index} offer={offers[index]} />)
+                    }
                 </div>
             </div>
         </main>
     )
 }
 
-export default Catalog
+const mapStateToProps = (state) => ({
+    offers: state.offers
+})
+
+// const mapDispatchToProps = (dispatch) => ({
+//     switchingMenu(selected) {
+//         dispatch(selectedMenu(selected))
+//     }
+// })
+
+export default connect(mapStateToProps, null)(Catalog);
