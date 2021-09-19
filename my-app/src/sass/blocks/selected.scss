@@ -1,0 +1,93 @@
+.selected {
+    position: relative;
+    display: flex;
+    height: 163px;
+    border-bottom: 0.7px solid #DDDADA;
+}
+
+.selected__delete {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    border: none;
+    top: 20px;
+    left: 1px;
+}
+
+.selected__img {
+    margin-left: 39px;
+    margin-top: 16px;
+    width: 60px;
+    height: 136px;
+}
+
+.selected__info-conteiner {
+    margin-left: 62px;
+}
+
+.selected__name {
+    margin: 0;
+    font-family: 'Droid Sans bolt';
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 19px;
+}
+
+.selected__text-container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Droid Sans';
+    font-size: 14px;
+    letter-spacing: 1.3px;
+    justify-content: space-between;
+    height: 37px;
+    margin-top: 11px;
+}
+
+.selected__price {
+    font-family: 'Droid Sans';
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    margin-top: 74px;
+    margin-left: 97px;
+}
+
+.selected__buttons {
+    margin-left: 89px;
+    margin-top: 40px;
+    display: flex;
+}
+
+.selected__button {
+    width: 28px;
+    height: 30px;
+    border: 1px solid #9F9E9E;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.selected__number {
+    display: block;
+    width: 28px;
+    height: 30px;
+    text-align: center;
+    border-top: 1px solid #9F9E9E;
+    border-bottom: 1px solid #9F9E9E;
+    box-sizing: border-box;
+    padding-top: 6px;
+    font-family: 'Droid Sans';
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    color: #9F9E9E;
+}
+
+.selected__total {
+    font-family: 'Droid Sans bolt';
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    margin-left: 82px;
+    margin-top: 74px;
+    white-space: nowrap;
+}

@@ -1,0 +1,108 @@
+.basket {
+    margin-top: 238px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 170px;
+}
+
+.basket__title {
+    font-family: 'Droid Sans bolt';
+    font-size: 22px;
+    margin: 0;
+}
+
+.basket__container {
+    font-family: 'Droid Sans';
+    font-size: 16px;
+    color: #474747;
+    margin-left: 2px;
+    margin-top: 21px;
+    display: flex;
+    justify-content: space-between;
+    width: 291px;
+    letter-spacing: 0.4px;
+}
+
+.basket__selecteds {
+    margin-top: 27px;
+    border-top: 0.7px solid #DDDADA;
+}
+
+.basket__completion-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.basket__text-discount {
+    font-family: 'Droid Sans bolt';
+    font-size: 16px;
+    letter-spacing: 0.9px;
+    margin-top: 39px;
+    margin-bottom: 0px;
+}
+
+.basket__discount-info {
+    margin-top: 8px;
+    margin-left: 2px;
+    display: block;
+    font-family: 'Droid Sans';
+    font-size: 12px;
+    letter-spacing: 0.8px;
+}
+
+.basket__discount-container {
+    margin-top: 21px;
+    display: flex;
+    justify-content: space-between;
+    width: 404px;
+}
+
+.basket__discount-input {
+    border: 2px solid #DDDADA;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-family: 'Droid Sans';
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    width: 170px;
+    height: 36px;
+}
+
+.basket__discount-button {
+    background: #C1C1C1;
+    border-radius: 2px;
+    font-family: 'Droid Sans bolt';
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    width: 200px;
+    height: 36px;
+    border: none;
+}
+
+.basket__registration {
+    display: flex;
+    flex-direction: column;
+}
+
+.basket__registration-text {
+    font-family: 'Droid Sans bolt';
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    margin-top: 36px;
+    padding-right: 9px;
+    text-align: end;
+}
+
+.basket__registration-button {
+    width: 220px;
+    height: 36px;
+    background: #E27F00;
+    border-radius: 2px;
+    border: none;
+    font-family: 'Droid Sans bolt';
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    margin-top: 40px;
+}
