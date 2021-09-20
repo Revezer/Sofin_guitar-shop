@@ -1,0 +1,66 @@
+.popup-success {
+    background: #FFFFFF;
+    box-shadow: 0px 5px 6px rgba(63, 63, 63, 0.2);
+    border-radius: 4px;
+    position: fixed;
+    width: 740px;
+    height: 185px;
+}
+
+.popup-success__title {
+    font-family: 'Droid Sans bolt';
+    font-size: 18px;
+    letter-spacing: 0.4px;
+    color: #474747;
+    margin-top: 27px;
+    margin-left: 50px;
+    margin-bottom: 18px;
+}
+
+.popup-success__link {
+    border: none;
+    background: #E27F00;
+    border-radius: 2px;
+    width: 220px;
+    height: 46px;
+    font-family: 'Droid Sans bolt';
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.popup-success__button {
+    width: 220px;
+    height: 46px;
+    border: 1px solid #585757;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-family: 'Droid Sans bolt';
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    color: #585757;
+    background-color: white;
+}
+
+.popup-success__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-left: 132px;
+    margin-right: 132px;
+}
+
+.popup-success__close {
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 18px;
+    background-color: black;
+}

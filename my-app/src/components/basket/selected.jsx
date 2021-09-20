@@ -9,8 +9,8 @@ const Selected = () => {
             <div className='selected__info-conteiner'>
                 <h3 className='selected__name'>ЭлектроГитара Честер bass</h3>
                 <div className='selected__text-container'>
-                <span className='selected__info'>Артикул: SO757575</span>
-                <span className='selected__info'>Электрогитара, 6 струнная </span>
+                    <span className='selected__info'>Артикул: SO757575</span>
+                    <span className='selected__info'>Электрогитара, 6 струнная </span>
                 </div>
             </div>
             <span className='selected__price'>17 500 ₽</span>

@@ -1,0 +1,101 @@
+.main-popup {
+    position: fixed;
+    background-color: white;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 740px;
+    height: 230px;
+    box-shadow: 0px 5px 6px rgba(63, 63, 63, 0.2);
+    border-radius: 4px;
+}
+
+.main-popup__title {
+    font-family: 'Droid Sans bolt';
+    font-size: 18px;
+    letter-spacing: 0.4px;
+    color: #474747;
+    margin-top: 27px;
+    margin-left: 50px;
+    margin-bottom: 18px;
+}
+
+.main-popup__img {
+    margin-left: 48px;
+    height: 141px;
+    width: 62px;
+}
+
+.main-popup__container {
+    display: flex;
+}
+
+.main-popup__info-conteiner {
+    display: flex;
+    flex-direction: column;
+    margin-left: 38px;
+    width: 322px;
+}
+
+.main-popup__name {
+    font-family: 'Droid Sans bolt';
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.main-popup__info {
+    font-family: 'Droid Sans';
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+
+.main-popup__price {
+    font-family: 'Droid Sans bolt';
+    font-size: 20px;
+    letter-spacing: 0.05em;
+
+}
+
+.main-popup__button {
+    border: none;
+    background: #E27F00;
+    border-radius: 2px;
+    width: 220px;
+    height: 46px;
+    font-family: 'Droid Sans bolt';
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    margin-top: 18px;
+}
+
+.main-popup__close {
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 18px;
+    background-color: black;
+}
+
+.main-popup__container-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-popup__button-proceed {
+    width: 220px;
+    height: 46px;
+    border: 1px solid #585757;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-family: 'Droid Sans bolt';
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    color: #585757;
+    background-color: white;
+    margin-top: 16px;
+}

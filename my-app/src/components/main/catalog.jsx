@@ -3,11 +3,14 @@ import FilterComponent from './filter'
 import OfferComponent from './offer'
 import SortingComponent from './sorting'
 import {connect} from 'react-redux'
+import PopUpAdd from './popup-add'
+import PopUpSuccess from './popup-success'
 
 const Catalog = (props) => {
     const {offers} = props
     
     return(
+        <>
         <main className='main'>
             <h1 className='main__title'>Каталог гитар</h1>
             <span className='main__text main__text--arrow'>Главная</span>
@@ -22,6 +25,9 @@ const Catalog = (props) => {
                 </div>
             </div>
         </main>
+        <PopUpAdd/>
+        <PopUpSuccess/>
+        </>
     )
 }
 

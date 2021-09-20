@@ -1,6 +1,7 @@
 import React from 'react';
 import FooterComponent from '../footer/footer';
 import HeaderComponent from '../header/header';
+import PopUpDelete from './popup-delete';
 import SelectedComponent from './selected';
 
 const Basket = () => {
@@ -33,6 +34,7 @@ const Basket = () => {
                     </div>
                 </div>
             </div>
+            <PopUpDelete/>
             <FooterComponent/>
         </>
     )
