@@ -8,8 +8,6 @@ import Basket from '../../img/basket.svg'
 const Offer = (props) => {
     const {offer} = props
 
-    console.log(offer)
-
     const setGuitagImg = (guitar) => {
         switch (guitar) {
             case 'aкустические гитары':
@@ -32,7 +30,7 @@ const Offer = (props) => {
             </div>
             <div className='offer__text-conteiner'>
                 <span className='offer__name'>{offer.name}</span>
-                <span className='offer__price'>{offer.prise} ₽</span>
+                <span className='offer__price'>{offer.price} ₽</span>
             </div>
             <div className='offer__button-conteiner'>
                 <button className='offer__info'>Подробнее</button>

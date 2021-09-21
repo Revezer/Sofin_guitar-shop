@@ -3,16 +3,41 @@ import {ActionType} from './action';
 
 const initialState = {
   offers: offers,
+  sortMoney: false,
+  sortPopularity: false,
+  sortUp: false,
+  sortDown: false,
+  sortOffers: offers
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-      case ActionType.CHANGE_INFORMATION:
-        return {
-          ...state,
-          offers: action.payload
-        };
-      default:
+        case ActionType.SORT_BY_PRICE:
+            return {
+                ...state,
+                sortMoney: action.payload
+            };
+        case ActionType.SORT_BY_POPYLARITY:
+            return {
+                ...state,
+                sortPopularity: action.payload
+            };
+        case ActionType.SORT_BY_UP:
+            return {
+                ...state,
+                sortUp: action.payload
+            };
+        case ActionType.SORT_BY_DOWN:
+            return {
+                ...state,
+                sortDown: action.payload
+            };
+        case ActionType.SORT_OFFERS:
+            return {
+                ...state,
+                sortOffers: action.payload
+            }
+        default:
     }
   return state;
 };

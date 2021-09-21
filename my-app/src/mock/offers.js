@@ -6,7 +6,7 @@ const offers = [
         'type': 'электрогитара',
         'popularity': 15,
         'strings': 7,
-        'prise': 17500
+        'price': 17500
     },
     {
         'id': 2,
@@ -15,7 +15,7 @@ const offers = [
         'type': 'электрогитара',
         'popularity': 9,
         'strings': 7,
-        'prise': 29500
+        'price': 29500
     },
     {
         'id': 3,
@@ -24,7 +24,7 @@ const offers = [
         'type': 'укулеле',
         'popularity': 21,
         'strings': 4,
-        'prise': 6800
+        'price': 6800
     },
     {
         'id': 4,
@@ -33,7 +33,7 @@ const offers = [
         'type': 'электрогитара',
         'popularity': 15,
         'strings': 6,
-        'prise': 30000
+        'price': 30000
     },
     {
         'id': 5,
@@ -42,7 +42,7 @@ const offers = [
         'type': 'акустическая гитара',
         'popularity': 5,
         'strings': 7,
-        'prise': 3500
+        'price': 3500
     },
     {
         'id': 6,
@@ -51,7 +51,7 @@ const offers = [
         'type': 'электрогитара',
         'popularity': 17,
         'strings': 6,
-        'prise': 15300
+        'price': 15300
     },
     {
         'id': 7,
@@ -60,7 +60,7 @@ const offers = [
         'type': 'укулеле',
         'popularity': 5,
         'strings': 4,
-        'prise': 2200
+        'price': 2200
     },
     {
         'id': 8,
@@ -69,7 +69,7 @@ const offers = [
         'type': 'электрогитара',
         'popularity': 27,
         'strings': 4,
-        'prise': 30000
+        'price': 30000
     },
     {
         'id': 9,
@@ -78,7 +78,7 @@ const offers = [
         'type': 'акустическая гитара',
         'popularity': 3,
         'strings': 7,
-        'prise': 1700
+        'price': 1700
     },
     // {
     //     'id': 10,
@@ -87,7 +87,7 @@ const offers = [
     //     'type': 'электрогитара',
     //     'popularity': 20,
     //     'strings': 4,
-    //     'prise': 23000
+    //     'price': 23000
     // },
     // {
     //     'id': 11,
@@ -96,7 +96,7 @@ const offers = [
     //     'type': 'электрогитара',
     //     'popularity': 19,
     //     'strings': 4,
-    //     'prise': 18700
+    //     'price': 18700
     // },
     // {
     //     'id': 12,
@@ -105,7 +105,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 13,
@@ -114,7 +114,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 14,
@@ -123,7 +123,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 15,
@@ -132,7 +132,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 16,
@@ -141,7 +141,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 17,
@@ -150,7 +150,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 18,
@@ -159,7 +159,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 19,
@@ -168,7 +168,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 20,
@@ -177,7 +177,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 21,
@@ -186,7 +186,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 22,
@@ -195,7 +195,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 23,
@@ -204,7 +204,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 24,
@@ -213,7 +213,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 25,
@@ -222,7 +222,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 26,
@@ -231,7 +231,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 27,
@@ -240,7 +240,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 28,
@@ -249,7 +249,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 29,
@@ -258,7 +258,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
     // {
     //     'id': 30,
@@ -267,7 +267,7 @@ const offers = [
     //     'type': '',
     //     'popularity': ,
     //     'strings': ,
-    //     'prise': 
+    //     'price': 
     // },
 ];
 

@@ -7,7 +7,7 @@ import PopUpAdd from './popup-add'
 import PopUpSuccess from './popup-success'
 
 const Catalog = (props) => {
-    const {offers} = props
+    const {sortOffers} = props
     
     return(
         <>
@@ -20,7 +20,7 @@ const Catalog = (props) => {
                 <SortingComponent/>
                 <div className='main__catalog catalog'>
                     {
-                        offers.map((offer, index) => <OfferComponent key={offer + index} offer={offers[index]} />)
+                        sortOffers.map((offer, index) => <OfferComponent key={offer + index} offer={sortOffers[index]} />)
                     }
                 </div>
             </div>
@@ -32,13 +32,7 @@ const Catalog = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    offers: state.offers
+    sortOffers: state.sortOffers
 })
-
-// const mapDispatchToProps = (dispatch) => ({
-//     switchingMenu(selected) {
-//         dispatch(selectedMenu(selected))
-//     }
-// })
 
 export default connect(mapStateToProps, null)(Catalog);

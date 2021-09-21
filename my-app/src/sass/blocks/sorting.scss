@@ -13,6 +13,10 @@
     margin-left: 15px;
 }
 
+.sorting__button-money--noactive {
+    color: #585757;
+}
+
 .sorting__button-popularity {
     background-color: white;
     border: none;
@@ -23,6 +27,10 @@
     margin-top: 1px;
 }
 
+.sorting__button-popularity--noactive {
+    color: #585757;
+}
+
 .sorting__button-up {
     width: 22px;
     height: 22px;
@@ -30,6 +38,11 @@
     background-color: white;
     border: none;
     // background-image: url('../../img/arrow-up.svg');
+    background-color: black;
+}
+
+.sorting__button-up--noactive {
+    background-color: grey;
 }
 
 .sorting__button-down {
@@ -38,4 +51,10 @@
     background-color: white;
     border: none;
     // background-image: url(../../img/arrow-down.svg);
+    background-color: black;
+    margin-left: 5px;
+}
+
+.sorting__button-down--noactive {
+    background-color: grey;
 }
