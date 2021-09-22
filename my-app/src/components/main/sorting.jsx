@@ -6,11 +6,11 @@ const Sorting = (props) => {
     const {sortMoney, setSortPrice, sortPopularity, setSortPopularity, sortUp, setSortUp, sortDown, setSortDown, offers, setSortOffers} = props
 
     function sortPopularityLowToHigh(offerA, offerB) {
-        return (offerB.popularity - offerA.popularity);
+        return (offerA.popularity - offerB.popularity);
     }
 
     function sortPopularityHighToLow(offerA, offerB) {
-        return (offerA.popularity - offerB.popularity);
+        return (offerB.popularity - offerA.popularity);
     }
       
     function sortPriceLowToHigh(offerA, offerB) {

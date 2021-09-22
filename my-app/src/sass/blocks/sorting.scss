@@ -38,11 +38,10 @@
     background-color: white;
     border: none;
     background-image: url('../../img/arrow-up.svg');
-    background-color: black;
 }
 
 .sorting__button-up--noactive {
-    background-color: grey;
+    background-image: url('../../img/arrow-up-noactive.svg');
 }
 
 .sorting__button-down {
@@ -51,10 +50,9 @@
     background-color: white;
     border: none;
     background-image: url('../../img/arrow-down.svg');
-    background-color: black;
     margin-left: 5px;
 }
 
 .sorting__button-down--noactive {
-    background-color: grey;
+    background-image: url('../../img/arrow-down-noactive.svg');
 }
