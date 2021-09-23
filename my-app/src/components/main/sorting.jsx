@@ -21,34 +21,34 @@ const Sorting = (props) => {
         return (offerA.price - offerB.price);
     }
 
-    const getOffersSort = () => {
-        switch(true) {
-            case sortMoney:
-                switch(true) {
-                    case sortUp:
-                        return offers.slice().sort(sortPriceHighToLow);
-                    case sortDown:
-                        return offers.slice().sort(sortPriceLowToHigh);
-                    default:
-                        return offers.slice().sort(sortPriceHighToLow);
-                }
-            case sortPopularity:
-                switch(true) {
-                    case sortUp:
-                        return offers.slice().sort(sortPopularityLowToHigh);
-                    case sortDown:
-                        return offers.slice().sort(sortPopularityHighToLow);
-                    default:
-                        return offers.slice().sort(sortPopularityLowToHigh);
-                }
-            default:
-                return(offers.slice())
-        }
-    }
-
     useEffect(() => {
+        const getOffersSort = () => {
+            switch(true) {
+                case sortMoney:
+                    switch(true) {
+                        case sortUp:
+                            return offers.slice().sort(sortPriceHighToLow);
+                        case sortDown:
+                            return offers.slice().sort(sortPriceLowToHigh);
+                        default:
+                            return offers.slice().sort(sortPriceHighToLow);
+                    }
+                case sortPopularity:
+                    switch(true) {
+                        case sortUp:
+                            return offers.slice().sort(sortPopularityLowToHigh);
+                        case sortDown:
+                            return offers.slice().sort(sortPopularityHighToLow);
+                        default:
+                            return offers.slice().sort(sortPopularityLowToHigh);
+                    }
+                default:
+                    return(offers.slice())
+            }
+        }
+
         setSortOffers(getOffersSort())
-    }, [sortMoney, sortPopularity, sortUp, sortDown])
+    }, [sortMoney, sortPopularity, sortUp, sortDown, offers, setSortOffers])
 
     const setSwichSortPrice = () => {
         if(sortMoney === false) {
@@ -111,7 +111,7 @@ const mapStateToProps = (state) => ({
     sortPopularity: state.sortPopularity,
     sortUp: state.sortUp,
     sortDown: state.sortDown,
-    offers: state.offers
+    offers: state.filterOffers
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -18,7 +18,8 @@ const initialState = {
         six: false,
         seven: false,
         twelve: false,
-    }
+    },
+    filterOffers: offers
 };
 
 const reducer = (state = initialState, action) => {
@@ -52,6 +53,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 filter: action.payload
+            }
+        case ActionType.FILTER_OFFERS:
+            return {
+                ...state,
+                filterOffers: action.payload
             }
         default:
     }

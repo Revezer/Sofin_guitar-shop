@@ -73,7 +73,9 @@
 }
 
 .filter__type-text--active::before {
-    background-image: url('../../img/basket.svg');
+    background-image: url('../../img/check-active.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .filter__type-conteiner {
@@ -103,6 +105,25 @@
 .filter__amount-text {
     font-family: 'Droid Sans';
     font-size: 16px;
+    position: relative;
+}
+
+.filter__amount-text::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    border: 0.7px solid #9F9E9E;
+    box-sizing: border-box;
+    border-radius: 2px;
+    left: -41px;
+    top: -2px;
+}
+
+.filter__amount-text--active::before {
+    background-image: url('../../img/check-active.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .filter__button {

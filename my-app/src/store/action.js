@@ -4,7 +4,8 @@ export const ActionType = {
     SORT_BY_UP: 'main/sorting-up',
     SORT_BY_DOWN: 'main/sorting-down',
     SORT_OFFERS: 'main/sorting-offers',
-    FILTER: 'main/filter',
+    FILTER: 'main/filter-type',
+    FILTER_OFFERS: 'main/filter-offers',
   };
 
   
@@ -36,4 +37,9 @@ export const setOffersSort = (offers) => ({
 export const setFilter = (data) => ({
     type: ActionType.FILTER,
     payload: data
+})
+
+export const setOffersFilter = (offers) => ({
+    type: ActionType.FILTER_OFFERS,
+    payload: offers
 })
