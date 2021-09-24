@@ -6,6 +6,7 @@ export const ActionType = {
     SORT_OFFERS: 'main/sorting-offers',
     FILTER: 'main/filter-type',
     FILTER_OFFERS: 'main/filter-offers',
+    PAGE: 'main/page'
   };
 
   
@@ -42,4 +43,9 @@ export const setFilter = (data) => ({
 export const setOffersFilter = (offers) => ({
     type: ActionType.FILTER_OFFERS,
     payload: offers
+})
+
+export const setPage = (number) => ({
+    type: ActionType.PAGE,
+    payload: number
 })

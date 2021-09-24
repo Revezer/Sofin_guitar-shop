@@ -63,3 +63,48 @@
     left: 72px;
     top: 3px;
 }
+
+.main__page-button {
+    width: 24px;
+    height: 24px;
+    border: 0.7px solid #9F9E9E;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-family: 'Droid Sans';
+    font-size: 12px;
+    background-color: white;
+    margin-left: 10px;
+}
+
+.main__page-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+    margin-right: 40px;
+}
+
+.main__page-button--back, .main__page-button--next {
+    width: 80px;
+    height: 24px;
+    background: #FFFFFF;
+    border: 0.7px solid #9F9E9E;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-family: 'Droid Sans';
+    font-size: 12px;
+    letter-spacing: 0.05em;
+}
+
+.main__page-button--next {
+    margin-left: 14px;
+}
+
+.main__page-button--back {
+    margin-right: 14px;
+}
+
+.main__page-button--active {
+    background: #585757;
+    color: #FFFFFF;
+    border: none;
+}

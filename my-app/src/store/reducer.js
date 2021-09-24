@@ -9,8 +9,8 @@ const initialState = {
     sortDown: false,
     sortOffers: offers,
     filter: {
-        minPrice: 0,
-        maxPrice: 100000,
+        minPrice: 1700,
+        maxPrice: 35000,
         acoustics: false,
         electro: false,
         ukulele: false,
@@ -19,7 +19,8 @@ const initialState = {
         seven: false,
         twelve: false,
     },
-    filterOffers: offers
+    filterOffers: offers,
+    page : 1
 };
 
 const reducer = (state = initialState, action) => {
@@ -58,6 +59,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 filterOffers: action.payload
+            }
+        case ActionType.PAGE:
+            return {
+                ...state,
+                page: action.payload
             }
         default:
     }

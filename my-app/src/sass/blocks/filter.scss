@@ -20,6 +20,7 @@
     margin-top: 25px;
     padding-bottom: 29px;
     justify-content: space-between;
+    position: relative;
 }
 
 .filter__money-input {
@@ -137,4 +138,26 @@
     font-size: 12px;
     text-transform: uppercase;
     color: #FFFFFF;
+}
+
+.filter__amount-text--disabled {
+    color: #DDDDDD;
+}
+
+.filter__amount-text--disabled::before {
+    background: #F7F3F3;
+    border: 0.7px solid #DDDDDD;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
+.filter__input-conteiner::before {
+    content: '';
+    background-image: url('../../img/line.svg');
+    position: absolute;
+    top: 13px;
+    right: 94px;
+    width: 17px;
+    height: 1px;
+    background-repeat: no-repeat;
 }
