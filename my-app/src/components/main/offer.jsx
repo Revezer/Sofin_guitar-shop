@@ -4,9 +4,11 @@ import Electro from '../../img/electro.jpg'
 import Acousticks from '../../img/acoustics.jpg'
 import Ukulele from '../../img/ukulele.jpg'
 import Basket from '../../img/basket.svg'
+import {connect} from 'react-redux'
+import { setOffer, setPopUpAdd } from '../../store/action';
 
 const Offer = (props) => {
-    const {offer} = props
+    const {offer, setPopUpAdd, setOffer} = props
 
     const setGuitagImg = (guitar) => {
         switch (guitar) {
@@ -19,7 +21,23 @@ const Offer = (props) => {
             default:
                 return(Acousticks)
         }
-    } 
+    }
+
+    const onPopupAddOpen = () => {
+        setPopUpAdd(true)
+        setOffer(offer)
+        window.onkeydown = (evt) => {
+            if ( evt.keyCode === 27 ) {
+                onPopupAddClose()
+            }
+        }
+        document.body.classList.add('openPopUp')
+    }
+
+    const onPopupAddClose = () => {
+        setPopUpAdd(false)
+        document.body.classList.remove('openPopUp')
+    }
 
     return(
         <div className='catalog__offer offer'>
@@ -34,7 +52,7 @@ const Offer = (props) => {
             </div>
             <div className='offer__button-conteiner'>
                 <button className='offer__info'>Подробнее</button>
-                <button className='offer__buy'>
+                <button className='offer__buy' onClick={onPopupAddOpen}>
                     <img className='offer__buy-icon' src={Basket} alt='иконка корзины'/>Купить
                     </button>
             </div>
@@ -42,4 +60,13 @@ const Offer = (props) => {
     )
 }
 
-export default Offer
+const mapDispatchToProps = (dispatch) => ({
+    setPopUpAdd(bool) {
+        dispatch(setPopUpAdd(bool))
+    },
+    setOffer(offer) {
+        dispatch(setOffer(offer))
+    }
+})
+
+export default connect(null, mapDispatchToProps)(Offer);

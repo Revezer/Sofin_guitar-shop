@@ -1,23 +1,88 @@
 import React from "react";
 import Electro from '../../img/electro-mini.png'
+import Acoustic from '../../img/acoustics-mini.png'
+import Ukulele from '../../img/ukulele-mini.png'
+import {connect} from 'react-redux'
+import { setOffers, setPopUpAdd, setPopUpSuccess } from '../../store/action'
 
-const PopUpAdd = () => {
+const PopUpAdd = (props) => {
+    const {closePopUpAdd, openPopUpSuccess, offer, addOffers, addedOffers} = props
+
+    const setGuitagImg = () => {
+        switch (offer.type) {
+            case 'aкустические гитары':
+                return(Acoustic);
+            case 'электрогитара':
+                return(Electro);
+            case 'укулеле':
+                return(Ukulele);
+            default:
+                return(Acoustic)
+        }
+    }
+
+    const closePopUpAddHandler = () => {
+        document.onclick = (event) => {
+            if ( event.target.className === 'closePopup' ) {
+                closePopUpAdd(false)
+            };
+        };
+    }
+
+    const closePopup = () => {
+        closePopUpAdd(false)
+        document.body.classList.remove('openPopUp')
+    }
+
+    const onPopUpSuccessOpen = () => {
+        const offers = addedOffers.slice()
+        offers.push(offer)
+        addOffers(offers)
+        closePopUpAdd(false)
+        openPopUpSuccess(true)
+        window.onkeydown = (evt) => {
+            if ( evt.keyCode === 27 ) {
+                openPopUpSuccess(false)
+                document.body.classList.remove('openPopUp')
+            }
+        }
+        document.body.classList.add('openPopUp')
+    }
+
     return(
         <div className='main-popup'>
             <h3 className='main-popup__title'>Добавить товар в корзину</h3>
             <div className='main-popup__container'>
-                <img className='main-popup__img' src={Electro} alt='фото гитары'></img>
+                <img className='main-popup__img' src={setGuitagImg()} alt='фото гитары'></img>
                 <div className='main-popup__info-conteiner'>
-                    <h3 className='main-popup__name'>ЭлектроГитара Честер bass</h3>
-                    <span className='main-popup__info'>Артикул: SO757575</span>
-                    <span className='main-popup__info'>Электрогитара, 6 струнная </span>
-                    <h3 className='main-popup__price'>Цена: 17 500 ₽</h3>
+                    <h3 className='main-popup__name'>{offer.name}</h3>
+                    <span className='main-popup__info'>Артикул: {offer.code}</span>
+                    <span className='main-popup__info'>{offer.type}, {offer.strings} струнная </span>
+                    <h3 className='main-popup__price'>Цена: {offer.price} ₽</h3>
                 </div>
-                <button className='main-popup__button'>Добавить в корзину</button>
+                <button className='main-popup__button' onClick={onPopUpSuccessOpen}>Добавить в корзину</button>
             </div>
-            <button className='main-popup__close'></button>
+            <button className='main-popup__close' onClick={closePopup}></button>
+            {closePopUpAddHandler()}
         </div>
     )
 }
 
-export default PopUpAdd;
+const mapStateToProps = (state) => ({
+    offer: state.addOffer,
+    addedOffers: state.addedOffers
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    closePopUpAdd(bool) {
+        dispatch(setPopUpAdd(bool))
+    },
+    openPopUpSuccess(bool) {
+        dispatch(setPopUpSuccess(bool))
+    },
+    addOffers(offers) {
+        dispatch(setOffers(offers))
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PopUpAdd);

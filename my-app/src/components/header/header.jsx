@@ -3,14 +3,30 @@ import Logo from '../../img/logo.svg'
 import IconMap from '../../img/icon_map.svg'
 import IconSearch from '../../img/icon_search.svg'
 import IconBasket from '../../img/icon_basket.svg'
+import {connect} from 'react-redux'
+import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
+    const {addedOffers} = props
+
+    const counterOffers = () => {
+        if(addedOffers.length > 0) {
+            return(
+                <span className='list-icon__text'>{addedOffers.length}</span>
+            )
+        } else {
+            return(
+                <span className='list-icon__text'></span>
+            )
+        }
+    }
+
     return(
         <header className='header'>
             <img className='header__logo' src={Logo} alt='логотип магазина'></img>
             <ul className='header__list-link list-link'>
                 <li>
-                    <a className='list-link__item' href='/'>Каталог</a>
+                    <Link className='list-link__item' to='/'>Каталог</Link>
                 </li>
                 <li>
                     <a className='list-link__item' href='/'>Где купить?</a>
@@ -34,14 +50,18 @@ const Header = () => {
                     </a>
                 </li>
                 <li>
-                    <a href='basket'>
+                    <Link to='/basket'>
                         <img src={IconBasket} alt='иконка корзины'></img>
-                        <span className='list-icon__text'>2</span>
-                    </a>
+                        {counterOffers()}
+                    </Link>
                 </li>
             </ul>
         </header>
     )
 }
 
-export default Header
+const mapStateToProps = (state) => ({
+    addedOffers: state.addedOffers
+})
+
+export default connect(mapStateToProps, null)(Header)

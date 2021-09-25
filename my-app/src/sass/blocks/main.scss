@@ -108,3 +108,15 @@
     color: #FFFFFF;
     border: none;
 }
+
+.closePopup {
+    background: rgba(88, 87, 87, 0.6);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    right: 0;
+}
+
+.openPopUp {
+    overflow:  hidden;
+}

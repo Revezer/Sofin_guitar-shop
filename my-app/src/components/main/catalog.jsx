@@ -8,24 +8,24 @@ import PopUpSuccess from './popup-success'
 import { setPage } from '../../store/action'
 
 const Catalog = (props) => {
-    const {sortOffers, page, getPage} = props
+    const {sortOffers, page, getPage, popupAdd, popupSuccess} = props
 
-    let pop = []
+    let offers = []
 
-    const doo = () => {
+    const getDivisionOffers = () => {
         for (let i = 0; i < sortOffers.length; i += 9) {
-            pop.push(sortOffers.slice(i, i + 9));
+            offers.push(sortOffers.slice(i, i + 9));
         }
     }
 
-    doo()
+    getDivisionOffers()
     
-
     const getButtonBack = page === 1 ? '' : <button className='main__page-button--back' onClick={()=>getPage(page - 1)}>Назад</button>
-    const getButtonNext = page === pop.length ? '' : <button className='main__page-button--next' onClick={()=>getPage(page + 1)}>Далее</button>
+    const getButtonNext = page === offers.length ? '' : <button className='main__page-button--next' onClick={()=>getPage(page + 1)}>Далее</button>
     const getFirstButton = page === 1 || page === 2 ? '' : <button className='main__page-button' onClick={()=>getPage(1)}>1</button>
-    const getEndButton = page === pop.length || page === pop.length - 1 ? '' : <button className='main__page-button' onClick={()=>getPage(pop.length)}>{pop.length}</button>
-    const getOtherButton = page < pop.length - 2 ? <button className='main__page-button'>...</button> : ''
+    const getEndButton = page === offers.length || page === offers.length - 1 ? '' : <button className='main__page-button' onClick={()=>getPage(offers.length)}>{offers.length}</button>
+    const getOtherButton = page < offers.length - 2 ? <button className='main__page-button'>...</button> : ''
+    const getOtherB2utton = page > 3 ? <button className='main__page-button'>...</button> : ''
     const getActiveButton = () => {
         if(page === 1) {
             return(
@@ -34,14 +34,14 @@ const Catalog = (props) => {
                 <button className='main__page-button' onClick={()=>getPage(2)}>2</button>
                 </>
             )
-        } else if(page === pop.length) {
+        } else if(page === offers.length) {
             return(
                 <>
-                <button className='main__page-button' onClick={()=>getPage(pop.length - 1)}>{pop.length - 1}</button>
-                <button className='main__page-button main__page-button--active'>{pop.length}</button>
+                <button className='main__page-button' onClick={()=>getPage(offers.length - 1)}>{offers.length - 1}</button>
+                <button className='main__page-button main__page-button--active'>{offers.length}</button>
                 </>
             )
-        } else if(page > 1 && page < (pop.length)) {
+        } else if(page > 1 && page < (offers.length)) {
             return(
                 <>
                 <button className='main__page-button' onClick={()=>getPage(page - 1)}>{page - 1}</button>
@@ -53,14 +53,20 @@ const Catalog = (props) => {
     }
 
     const getOffers = () => {
-        if (pop.length === 0) {
+        if (offers.length === 0) {
             return(<></>)
         } else {
             return(
-                pop[page - 1].map((offer, index) => <OfferComponent key={offer + index} offer={pop[page - 1][index]} />)
+                offers[page - 1].map((offer, index) => <OfferComponent key={offer + index} offer={offers[page - 1][index]} />)
             )
         }
     }
+
+    const getPopupAdd = popupAdd ? <PopUpAdd/> : ''
+
+    const getPopupSuccess = popupSuccess ? <PopUpSuccess/> : ''
+
+    const getPopup = popupAdd || popupSuccess ? <div className='closePopup'></div> : ''
     
     return(
         <>
@@ -72,29 +78,31 @@ const Catalog = (props) => {
                 <FilterComponent/>
                 <SortingComponent/>
                 <div className='main__catalog catalog'>
-                    {
-                        getOffers()
-                    }
+                    {getOffers()}
                 </div>
             </div>
             <div className='main__page-container'>
                     {getButtonBack}
                     {getFirstButton}
+                    {getOtherB2utton}
                     {getActiveButton()}
                     {getOtherButton}
                     {getEndButton}
                     {getButtonNext}
             </div>
         </main>
-        <PopUpAdd/>
-        <PopUpSuccess/>
+        {getPopup}
+        {getPopupAdd}
+        {getPopupSuccess}
         </>
     )
 }
 
 const mapStateToProps = (state) => ({
     sortOffers: state.sortOffers,
-    page: state.page
+    page: state.page,
+    popupAdd: state.popupAdd,
+    popupSuccess: state.popupSuccess,
 })
 
 const mapDispatchToProps = (dispatch) => ({

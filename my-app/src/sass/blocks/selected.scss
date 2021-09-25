@@ -9,10 +9,11 @@
     position: absolute;
     width: 18px;
     height: 18px;
-    background-color: black;
+    background-color: white;
     border: none;
     top: 20px;
     left: 1px;
+    background-image: url('../../img/icon_cross.svg');
 }
 
 .selected__img {
@@ -24,6 +25,7 @@
 
 .selected__info-conteiner {
     margin-left: 62px;
+    width: 204px;
 }
 
 .selected__name {
@@ -53,6 +55,7 @@
     margin-top: 74px;
     margin-left: 97px;
     white-space: nowrap;
+    width: 80px;
 }
 
 .selected__buttons {

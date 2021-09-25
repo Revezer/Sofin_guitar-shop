@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import FooterComponent from '../footer/footer';
 import HeaderComponent from '../header/header';
 import PopUpDelete from './popup-delete';
 import SelectedComponent from './selected';
+import {connect} from 'react-redux'
+import {setTotalPrise} from '../../store/action';
 
-const Basket = () => {
+const Basket = (props) => {
+    const {offers, totalPrice, setPrice, popup} = props
+
+    useEffect(()=> {
+        let price = 0
+        if(offers.length === 0) {
+            setPrice(0)
+        }
+        offers.forEach(offer => {
+            price = price + offer.price
+            setPrice(price)
+        })
+    },[offers, setPrice])
+
+    const getOffers = () => {
+        if (offers.length === 0) {
+            return(<></>)
+        } else {
+            return(
+                offers.map((offer, index) => <SelectedComponent key={offer + index} offer={offers[index]} index={index} />)
+            )
+        }
+    }
+
+    const openPopUp = popup ? <PopUpDelete/> : ''
+
+    const getPopup = popup ? <div className='closePopup'></div> : ''
+
     return(
         <>
             <HeaderComponent/>
@@ -16,8 +45,7 @@ const Basket = () => {
                     <span className='basket__text'>Оформляем</span>
                 </div>
                 <div className='basket__selecteds'>
-                    <SelectedComponent/>
-                    <SelectedComponent/>
+                    {getOffers()}
                 </div>
                 <div className='basket__completion-container'>
                     <div>
@@ -29,15 +57,28 @@ const Basket = () => {
                         </div>
                     </div>
                     <div className='basket__registration'>
-                        <span className='basket__registration-text'>Всего: 47 000 ₽ </span>
+                        <span className='basket__registration-text'>Всего: {totalPrice} ₽ </span>
                         <button className='basket__registration-button'>Оформить заказ</button>
                     </div>
                 </div>
             </div>
-            <PopUpDelete/>
+            {getPopup}
+            {openPopUp}
             <FooterComponent/>
         </>
     )
 }
 
-export default Basket
+const mapStateToProps = (state) => ({
+    offers: state.addedOffers,
+    totalPrice: state.totalPrice,
+    popup: state.popupDelete,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    setPrice(price) {
+        dispatch(setTotalPrise(price))
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Basket);

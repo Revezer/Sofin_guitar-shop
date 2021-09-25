@@ -129,7 +129,7 @@ const mapDispatchToProps = (dispatch) => ({
     },
     setSortOffers(offers) {
         dispatch(setOffersSort(offers))
-    },
+    }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sorting);

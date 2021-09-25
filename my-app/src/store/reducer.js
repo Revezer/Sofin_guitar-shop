@@ -20,7 +20,14 @@ const initialState = {
         twelve: false,
     },
     filterOffers: offers,
-    page : 1
+    page : 1,
+    popupAdd: false,
+    popupSuccess: false,
+    popupDelete: false,
+    addOffer: [],
+    addedOffers: [],
+    totalPrice: 0,
+    offerDelete: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -64,6 +71,42 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 page: action.payload
+            }
+
+        case ActionType.POPUP_ADD:
+            return {
+                ...state,
+                popupAdd: action.payload
+            }
+            case ActionType.POPUP_SUCCESS:
+            return {
+                ...state,
+                popupSuccess: action.payload
+            }
+        case ActionType.POPUP_DELETE:
+            return {
+                ...state,
+                popupDelete: action.payload
+            }
+        case ActionType.ADD_OFFER:
+            return {
+                ...state,
+                addOffer: action.payload
+            }
+        case ActionType.ADDED_OFFERS:
+            return {
+                ...state,
+                addedOffers: action.payload
+            }
+        case ActionType.TOTAL_PRICE:
+            return {
+                ...state,
+                totalPrice: action.payload
+            }
+        case ActionType.OFFER_DELETE:
+            return {
+                ...state,
+                offerDelete: action.payload
             }
         default:
     }

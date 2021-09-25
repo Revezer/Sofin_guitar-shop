@@ -1,12 +1,12 @@
 import React, { useEffect, useState }  from 'react';
 import {connect} from 'react-redux'
-import { setFilter, setOffersFilter } from '../../store/action';
+import { setFilter, setOffersFilter, setPage } from '../../store/action';
 
 let filterOffersPrice = []
 let filterOffersType = []
 
 const Filter = (props) => {
-    const {offers, filter, setFilter, setFilterOffers} = props
+    const {offers, filter, setFilter, setFilterOffers, setPage} = props
 
     const [typeFour, setTypeFour] = useState(true)
     const [typeSix, setTypeSix] = useState(true)
@@ -14,6 +14,7 @@ const Filter = (props) => {
     const [typeTwelve, setTypeTwelve] = useState(true)
 
     useEffect(() => {
+        setPage(1)
 
         const setFilterPrice = () => {
             filterOffersPrice = offers.filter(offer => offer.price >= filter.minPrice && offer.price <= filter.maxPrice)
@@ -103,7 +104,7 @@ const Filter = (props) => {
         }
 
         setBigFilter()
-    },[filter, offers, setFilterOffers])
+    },[filter, offers, setFilterOffers, setPage])
 
     const onChangeMinPrice = (event) => {
         if(event.target.value > filter.maxPrice) {
@@ -316,6 +317,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     setFilterOffers (offers) {
         dispatch(setOffersFilter(offers))
+    },
+    setPage(number) {
+        dispatch(setPage(number))
     }
 })
 
