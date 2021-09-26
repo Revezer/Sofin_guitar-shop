@@ -55,6 +55,10 @@ const Selected = (props) => {
         };
     }
 
+    const numberWithSpaces = (number) => {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+
     return(
         <div className='basket__selected selected'>
             <button className='selected__delete' onClick={openDeletePopUp}></button>
@@ -66,13 +70,13 @@ const Selected = (props) => {
                     <span className='selected__info'>{offer.type}, {offer.strings} струнная </span>
                 </div>
             </div>
-            <span className='selected__price'>{offer.price} ₽</span>
+            <span className='selected__price'>{numberWithSpaces(offer.price)} ₽</span>
             <div className='selected__buttons'>
                 <button className='selected__button' onClick={onMinusButton}>-</button>
                 <span className='selected__number'>{quantity}</span>
                 <button className='selected__button' onClick={onPlusButton}>+</button>
             </div>
-            <span className='selected__total'>{offer.price * quantity} ₽</span>
+            <span className='selected__total'>{numberWithSpaces(offer.price * quantity)} ₽</span>
         </div>
     )
 }

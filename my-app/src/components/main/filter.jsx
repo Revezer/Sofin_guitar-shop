@@ -107,31 +107,33 @@ const Filter = (props) => {
     },[filter, offers, setFilterOffers, setPage])
 
     const onChangeMinPrice = (event) => {
-        if(event.target.value > filter.maxPrice) {
+        let number = Number(event.target.value.replace(/\s/g, ''))
+        if(number > filter.maxPrice) {
             setFilter({
                 ...filter,
-                minPrice: event.target.value,
-                maxPrice: event.target.value
+                minPrice: number,
+                maxPrice: number
             })
         } else {
             setFilter({
                 ...filter,
-                minPrice: event.target.value
+                minPrice: number
             })
         }
     }
 
     const onChangeMaxPrice = (event) => {
-        if(event.target.value < filter.minPrice) {
+        let number = Number(event.target.value.replace(/\s/g, ''))
+        if(number < filter.minPrice) {
             setFilter({
                 ...filter,
-                maxPrice: event.target.value,
-                minPrice: event.target.value
+                maxPrice: number,
+                minPrice: number
             })
         } else {
             setFilter({
                 ...filter,
-                maxPrice: event.target.value
+                maxPrice: number
             })
         }
     }
@@ -265,6 +267,10 @@ const Filter = (props) => {
             )
         }
     }
+
+    const numberWithSpaces = (number) => {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
     
     return(
         <form className='maint__filter filter'>
@@ -272,8 +278,8 @@ const Filter = (props) => {
             <div className='filter__money-conteiner'>
                 <h3 className='filter__money-subtitle'>Цена, ₽</h3>
                 <div className='filter__input-conteiner'>
-                    <input className='filter__money-input filter__money-input--line' value={filter.minPrice} onChange={onChangeMinPrice}/>
-                    <input className='filter__money-input' value={filter.maxPrice} onChange={onChangeMaxPrice}/>
+                    <input className='filter__money-input filter__money-input--line' value={numberWithSpaces(filter.minPrice)} onChange={onChangeMinPrice}/>
+                    <input className='filter__money-input' value={numberWithSpaces(filter.maxPrice)} onChange={onChangeMaxPrice}/>
                 </div>
             </div>
             <div className='filter__type-conteiner'>

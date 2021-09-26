@@ -49,6 +49,10 @@ const PopUpAdd = (props) => {
         document.body.classList.add('openPopUp')
     }
 
+    const numberWithSpaces = (number) => {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+
     return(
         <div className='main-popup'>
             <h3 className='main-popup__title'>Добавить товар в корзину</h3>
@@ -58,7 +62,7 @@ const PopUpAdd = (props) => {
                     <h3 className='main-popup__name'>{offer.name}</h3>
                     <span className='main-popup__info'>Артикул: {offer.code}</span>
                     <span className='main-popup__info'>{offer.type}, {offer.strings} струнная </span>
-                    <h3 className='main-popup__price'>Цена: {offer.price} ₽</h3>
+                    <h3 className='main-popup__price'>Цена: {numberWithSpaces(offer.price)} ₽</h3>
                 </div>
                 <button className='main-popup__button' onClick={onPopUpSuccessOpen}>Добавить в корзину</button>
             </div>

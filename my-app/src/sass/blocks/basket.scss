@@ -55,6 +55,7 @@
     display: flex;
     justify-content: space-between;
     width: 404px;
+    position: relative;
 }
 
 .basket__discount-input {
@@ -106,4 +107,34 @@
     letter-spacing: 1px;
     color: #FFFFFF;
     margin-top: 40px;
+}
+
+.basket__discount-error {
+    display: none;
+}
+
+.basket__discount-error--active {
+    position: absolute;
+    display: block;
+    font-family: 'Droid Sans';
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: #000000;
+    top: 45px;
+}
+
+.basket__text--arrow {
+    position: relative;
+}
+
+.basket__text--arrow::before {
+    content: '';
+    position: absolute;
+    background-image: url('../../img/arrow.svg');
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    right: -26px;
+    top: 2px;
 }
