@@ -34,12 +34,18 @@ const Catalog = (props) => {
     const getOtherB2utton = page > THREE ? <button className='main__page-button'>...</button> : ''
     const getActiveButton = () => {
         if(page === ONE) {
-            return(
-                <>
-                <button className='main__page-button main__page-button--active'>1</button>
-                <button className='main__page-button' onClick={()=>setPageNumber(TWO)}>2</button>
-                </>
-            )
+            if(offers.length === ONE) {
+                return (
+                    <></>
+                )
+            } else {
+                return(
+                    <>
+                    <button className='main__page-button main__page-button--active'>1</button>
+                    <button className='main__page-button' onClick={()=>setPageNumber(TWO)}>2</button>
+                    </>
+                )
+            }
         } else if(page === offers.length) {
             return(
                 <>

@@ -1,20 +1,13 @@
 @font-face {
-    font-family: 'Droid Sans';
+    font-family: 'Droid Sans', 'Arial';
     src: url('../fonts/DroidSans.woff2') format('woff2'),
          url('../fonts/DroidSans.woff') format('woff');
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Droid Sans bolt';
+    font-family: 'Droid Sans bolt', 'Arial';
     src: url('../fonts/DroidSans-Bold.woff2') format('woff2'),
          url('../fonts/DroidSans-Bold.woff') format('woff');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins.woff2') format('woff2'),
-         url('../fonts/Poppins.woff') format('woff');
     font-display: swap;
 }
