@@ -6,11 +6,13 @@ import IconBasket from '../../img/icon_basket.svg'
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
 
+const ZERO = 0
+
 const Header = (props) => {
     const {addedOffers} = props
 
-    const counterOffers = () => {
-        if(addedOffers.length > 0) {
+    const getCounterOffers = () => {
+        if(addedOffers.length > ZERO) {
             return(
                 <span className='list-icon__text'>{addedOffers.length}</span>
             )
@@ -52,7 +54,7 @@ const Header = (props) => {
                 <li>
                     <Link to='/basket'>
                         <img src={IconBasket} alt='иконка корзины'></img>
-                        {counterOffers()}
+                        {getCounterOffers()}
                     </Link>
                 </li>
             </ul>

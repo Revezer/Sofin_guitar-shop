@@ -8,7 +8,7 @@ import { setOffers, setPopUpAdd, setPopUpSuccess } from '../../store/action'
 const PopUpAdd = (props) => {
     const {closePopUpAdd, openPopUpSuccess, offer, addOffers, addedOffers} = props
 
-    const setGuitagImg = () => {
+    const getGuitagImg = () => {
         switch (offer.type) {
             case 'aкустические гитары':
                 return(Acoustic);
@@ -29,7 +29,7 @@ const PopUpAdd = (props) => {
         };
     }
 
-    const closePopup = () => {
+    const onClosePopup = () => {
         closePopUpAdd(false)
         document.body.classList.remove('openPopUp')
     }
@@ -49,7 +49,7 @@ const PopUpAdd = (props) => {
         document.body.classList.add('openPopUp')
     }
 
-    const numberWithSpaces = (number) => {
+    const getNumberWithSpaces = (number) => {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 
@@ -57,16 +57,16 @@ const PopUpAdd = (props) => {
         <div className='main-popup'>
             <h3 className='main-popup__title'>Добавить товар в корзину</h3>
             <div className='main-popup__container'>
-                <img className='main-popup__img' src={setGuitagImg()} alt='фото гитары'></img>
+                <img className='main-popup__img' src={getGuitagImg()} alt='фото гитары'></img>
                 <div className='main-popup__info-conteiner'>
                     <h3 className='main-popup__name'>{offer.name}</h3>
                     <span className='main-popup__info'>Артикул: {offer.code}</span>
                     <span className='main-popup__info'>{offer.type}, {offer.strings} струнная </span>
-                    <h3 className='main-popup__price'>Цена: {numberWithSpaces(offer.price)} ₽</h3>
+                    <h3 className='main-popup__price'>Цена: {getNumberWithSpaces(offer.price)} ₽</h3>
                 </div>
                 <button className='main-popup__button' onClick={onPopUpSuccessOpen}>Добавить в корзину</button>
             </div>
-            <button className='main-popup__close' onClick={closePopup}></button>
+            <button className='main-popup__close' onClick={onClosePopup}></button>
             {closePopUpAddHandler()}
         </div>
     )

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const PopUpSuccess = (props) => {
     const {closePopUpSuccess} = props
 
-    const closePopUpAddHandler = () => {
+    const onClosePopUpAddHandler = () => {
         document.onclick = (event) => {
             if ( event.target.className === 'closePopup' ) {
                 closePopUpSuccess(false)
@@ -28,7 +28,7 @@ const PopUpSuccess = (props) => {
                 <button className='popup-success__button' onClick={closePopup}>Продолжить покупки</button>
             </div>
             <button className='popup-success__close' onClick={closePopup}></button>
-            {closePopUpAddHandler()}
+            {onClosePopUpAddHandler()}
         </div>
     )
 }

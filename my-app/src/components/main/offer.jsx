@@ -10,7 +10,7 @@ import { setOffer, setPopUpAdd } from '../../store/action';
 const Offer = (props) => {
     const {offer, setPopUpAdd, setOffer} = props
 
-    const setGuitagImg = (guitar) => {
+    const getGuitagImg = (guitar) => {
         switch (guitar) {
             case 'aкустические гитары':
                 return(Acousticks);
@@ -39,20 +39,20 @@ const Offer = (props) => {
         document.body.classList.remove('openPopUp')
     }
 
-    const numberWithSpaces = (number) => {
+    const getNumberWithSpaces = (number) => {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 
     return(
         <div className='catalog__offer offer'>
-            <img className='offer__img' src={setGuitagImg(offer.type)} alt='фото гитары'/>
+            <img className='offer__img' src={getGuitagImg(offer.type)} alt='фото гитары'/>
             <div className='offer__stars'>
                 <img src={Stars} alt='звезды'/>
                 <span className='offer__number'>{offer.popularity}</span>
             </div>
             <div className='offer__text-conteiner'>
                 <span className='offer__name'>{offer.name}</span>
-                <span className='offer__price'>{numberWithSpaces(offer.price)} ₽</span>
+                <span className='offer__price'>{getNumberWithSpaces(offer.price)} ₽</span>
             </div>
             <div className='offer__button-conteiner'>
                 <button className='offer__info'>Подробнее</button>

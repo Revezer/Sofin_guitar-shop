@@ -39,7 +39,7 @@
     padding: 0;
 }
 
-.footer-list__headline, .footer-address__headline {
+.footer__list-headline, .footer__address-headline {
     font-family: 'Droid Sans';
     font-size: 14px;
     line-height: 44px;
@@ -48,12 +48,12 @@
     opacity: 0.7;
 }
 
-.footer-list__list, .footer__address {
+.footer__list-list, .footer__address {
     list-style-type: none;
     padding: 0;
 }
 
-.footer-list__item, .footer-address__item {
+.footer__list-item, .footer__address-item {
     font-family: 'Droid Sans';
     font-size: 10px;
     line-height: 12px;
@@ -63,35 +63,35 @@
     letter-spacing: 0.02em;
 }
 
-.footer-list__item--letter {
+.footer__list-item--letter {
     letter-spacing: 0.13em;
 }
 
-.footer-list__item--margin {
+.footer__list-item--margin {
     margin-top: 12px;
 }
 
-.footer-list__conteiner-benefits {
+.footer__list-conteiner-benefits {
     margin-left: 174px;
 }
 
-.footer-list__conteiner-range {
+.footer__list-conteiner-range {
     margin-left: 18px;
 }
 
-.footer-list__range {
+.footer__list-range {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 93px;
 }
 
-.footer-list__conteiner-info {
+.footer__list-conteiner-info {
     margin-left: 22px;
     margin-top: 1px;
 }
 
-.footer-list__info {
+.footer__list-info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -103,7 +103,7 @@
     margin-left: 95px;
 }
 
-.footer-address__item--height {
+.footer__address-item--height {
     letter-spacing: 0.13em;
     line-height: 12px;
     margin-top: -3px;
@@ -113,18 +113,18 @@
     flex-direction: column;
 }
 
-.footer-address__item--margin {
+.footer__address-item--margin {
     margin-top: 12px;
 }
 
-.footer-address__telephon, .footer-address__time {
+.footer__address-telephon, .footer__address-time {
     padding-left: 15px;
     padding-top: 2px;
     letter-spacing: 0.1em;
     position: relative;
 }
 
-.footer-address__telephon::before {
+.footer__address-telephon::before {
     content: '';
     position: absolute;
     background-image: url('../../img/telephone.svg');
@@ -134,7 +134,7 @@
     left: 0px;
 }
 
-.footer-address__time::before {
+.footer__address-time::before {
     content: '';
     position: absolute;
     background-image: url('../../img/time.svg');

@@ -6,6 +6,11 @@ import SelectedComponent from './selected';
 import {connect} from 'react-redux'
 import {setTotalPrise} from '../../store/action';
 
+const DISCOUNT_MIN = 0.1
+const DISCOUNT_MAX = 0.3
+const DISCOUNT_SUPER = 700
+const DISCOUNT_GITARA = 3000
+
 const Basket = (props) => {
     const {offers, totalPrice, setPrice, popup} = props
 
@@ -40,16 +45,16 @@ const Basket = (props) => {
     const setdiscount = () => {
         switch(promoCode) {
             case 'GITARAHIT':
-                let discountA = totalPrice * 0.1
+                let discountA = totalPrice * DISCOUNT_MIN
                 return (totalPrice - discountA)
             case 'SUPERGITARA':
-                return (totalPrice - 700)
+                return (totalPrice - DISCOUNT_SUPER)
             case 'GITARA2020':
-                let discountB = totalPrice * 0.3
-                if(discountB < 3000) {
+                let discountB = totalPrice * DISCOUNT_MAX
+                if(discountB < DISCOUNT_GITARA) {
                     return(totalPrice - discountB)
-                } else if(discountB >= 3000) {
-                    return(totalPrice - 3000)
+                } else if(discountB >= DISCOUNT_GITARA) {
+                    return(totalPrice - DISCOUNT_GITARA)
                 }
                 break
             default:
@@ -69,7 +74,7 @@ const Basket = (props) => {
 
     const textError = error ? 'basket__discount-error basket__discount-error--active' : 'basket__discount-error'
 
-    const numberWithSpaces = (number) => {
+    const getNumberWithSpaces = (number) => {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 
@@ -97,7 +102,7 @@ const Basket = (props) => {
                         </div>
                     </div>
                     <div className='basket__registration'>
-                        <span className='basket__registration-text'>Всего: {numberWithSpaces(setdiscount())} ₽ </span>
+                        <span className='basket__registration-text'>Всего: {getNumberWithSpaces(setdiscount())} ₽ </span>
                         <button className='basket__registration-button'>Оформить заказ</button>
                     </div>
                 </div>

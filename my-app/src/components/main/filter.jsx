@@ -268,18 +268,18 @@ const Filter = (props) => {
         }
     }
 
-    const numberWithSpaces = (number) => {
+    const getNumberWithSpaces = (number) => {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
     
     return(
-        <form className='maint__filter filter'>
+        <form className='main__filter filter'>
             <h2 className='filter__title'>Фильтр</h2>
             <div className='filter__money-conteiner'>
                 <h3 className='filter__money-subtitle'>Цена, ₽</h3>
                 <div className='filter__input-conteiner'>
-                    <input className='filter__money-input filter__money-input--line' value={numberWithSpaces(filter.minPrice)} onChange={onChangeMinPrice}/>
-                    <input className='filter__money-input' value={numberWithSpaces(filter.maxPrice)} onChange={onChangeMaxPrice}/>
+                    <input className='filter__money-input filter__money-input--line' value={getNumberWithSpaces(filter.minPrice)} onChange={onChangeMinPrice}/>
+                    <input className='filter__money-input' value={getNumberWithSpaces(filter.maxPrice)} onChange={onChangeMaxPrice}/>
                 </div>
             </div>
             <div className='filter__type-conteiner'>

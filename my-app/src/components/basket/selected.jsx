@@ -8,7 +8,7 @@ import { setOfferDelete, setPopUpDelete, setTotalPrise } from "../../store/actio
 const Selected = (props) => {
     const {offer, setPrice, totalPrice, openPopUp, deleteOffer} = props
 
-    const setGuitagImg = () => {
+    const getGuitagImg = () => {
         switch (offer.type) {
             case 'aкустические гитары':
                 return(Acoustic);
@@ -55,14 +55,14 @@ const Selected = (props) => {
         };
     }
 
-    const numberWithSpaces = (number) => {
+    const getNumberWithSpaces = (number) => {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 
     return(
         <div className='basket__selected selected'>
             <button className='selected__delete' onClick={openDeletePopUp}></button>
-            <img className='selected__img' src={setGuitagImg()} alt='фото гитары'></img>
+            <img className='selected__img' src={getGuitagImg()} alt='фото гитары'></img>
             <div className='selected__info-conteiner'>
                 <h3 className='selected__name'>{offer.name}</h3>
                 <div className='selected__text-container'>
@@ -70,13 +70,13 @@ const Selected = (props) => {
                     <span className='selected__info'>{offer.type}, {offer.strings} струнная </span>
                 </div>
             </div>
-            <span className='selected__price'>{numberWithSpaces(offer.price)} ₽</span>
+            <span className='selected__price'>{getNumberWithSpaces(offer.price)} ₽</span>
             <div className='selected__buttons'>
                 <button className='selected__button' onClick={onMinusButton}>-</button>
                 <span className='selected__number'>{quantity}</span>
                 <button className='selected__button' onClick={onPlusButton}>+</button>
             </div>
-            <span className='selected__total'>{numberWithSpaces(offer.price * quantity)} ₽</span>
+            <span className='selected__total'>{getNumberWithSpaces(offer.price * quantity)} ₽</span>
         </div>
     )
 }
