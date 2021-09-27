@@ -71,6 +71,14 @@
     margin-top: 18px;
 }
 
+.main-popup__button:focus, .main-popup__button:hover {
+    background: #FFA839;
+}
+
+.main-popup__button:active {
+    background: #DA8B26;
+}
+
 .main-popup__close {
     border: none;
     position: absolute;

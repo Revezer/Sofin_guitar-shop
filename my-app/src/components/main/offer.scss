@@ -74,6 +74,14 @@
     height: 23px;
 }
 
+.offer__buy:hover, .offer__buy:focus {
+    background: #FFA839;
+}
+
+.offer__buy:active {
+    background: #DA8B26;
+}
+
 .offer__buy-icon {
     margin-top: 3px;
     margin-right: 6px;

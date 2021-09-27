@@ -74,6 +74,15 @@
     margin-left: 10px;
 }
 
+.main__page-button:hover, .main__page-button:focus, .main__page-button--next:hover, .main__page-button--next:focus, .main__page-button--back:hover, .main__page-button--back:focus {
+    background: #585757;
+    color: white;
+}
+
+.main__page-button:active .main__page-button--next:active, .main__page-button--back:active {
+    background: #9F9E9E;
+}
+
 .main__page-container {
     display: flex;
     justify-content: flex-end;

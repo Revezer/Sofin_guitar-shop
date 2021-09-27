@@ -6,6 +6,7 @@ import Ukulele from '../../img/ukulele.jpg'
 import Basket from '../../img/basket.svg'
 import {connect} from 'react-redux'
 import { setOffer, setPopUpAdd } from '../../store/action';
+import PropTypes from 'prop-types'
 
 const Offer = (props) => {
     const {offer, setPopUpAdd, setOffer} = props
@@ -62,6 +63,20 @@ const Offer = (props) => {
             </div>
         </div>
     )
+}
+
+Offer.propTypes = {
+    offer: PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        type: PropTypes.string.isRequired
+    }).isRequired,
+    setPopUpAdd: PropTypes.func.isRequired,
+    setOffer: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = (dispatch) => ({

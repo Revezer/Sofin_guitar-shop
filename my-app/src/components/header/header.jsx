@@ -5,6 +5,7 @@ import IconSearch from '../../img/icon_search.svg'
 import IconBasket from '../../img/icon_basket.svg'
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 const ZERO = 0
 
@@ -42,17 +43,17 @@ const Header = (props) => {
             </ul>
             <ul className='header__list-icon list-icon'>
                 <li>
-                    <a href='/'>
+                    <a className='list-icon__item' href='/'>
                         <img src={IconMap} alt='иконка карты'></img>
                     </a>
                 </li>
                 <li>
-                    <a href='/'>
+                    <a className='list-icon__item' href='/'>
                         <img src={IconSearch} alt='иконка поиска'></img>
                     </a>
                 </li>
                 <li>
-                    <Link to='/basket'>
+                    <Link className='list-icon__item' to='/basket'>
                         <img src={IconBasket} alt='иконка корзины'></img>
                         {getCounterOffers()}
                     </Link>
@@ -60,6 +61,18 @@ const Header = (props) => {
             </ul>
         </header>
     )
+}
+
+Header.propTypes = {
+    addedOffers: PropTypes.arrayOf(PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        type: PropTypes.string.isRequired
+    })).isRequired,
 }
 
 const mapStateToProps = (state) => ({

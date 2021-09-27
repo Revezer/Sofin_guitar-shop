@@ -37,6 +37,14 @@
     text-decoration: none;
 }
 
+.popup-success__link:hover, .popup-success__link:focus {
+    background: #FFA839;
+}
+
+.popup-success__link:active {
+    background: #DA8B26;
+}
+
 .popup-success__button {
     width: 220px;
     height: 46px;
@@ -48,6 +56,16 @@
     letter-spacing: 0.05em;
     color: #585757;
     background-color: white;
+}
+
+.popup-success__button:hover, .popup-success__button:focus {
+    color: rgba(88, 87, 87, 0.7);
+    border: 1px solid rgba(88, 87, 87, 0.7);
+}
+
+.popup-success__button:active {
+    border: 1px solid rgba(108, 108, 108, 0.5);
+    color: rgba(88, 87, 87, 0.5);
 }
 
 .popup-success__container {

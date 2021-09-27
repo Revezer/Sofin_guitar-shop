@@ -4,6 +4,7 @@ import Acoustic from '../../img/acoustics-mini.png'
 import Ukulele from '../../img/ukulele-mini.png'
 import {connect} from 'react-redux'
 import { setOffers, setPopUpAdd, setPopUpSuccess } from '../../store/action'
+import PropTypes from 'prop-types'
 
 const PopUpAdd = (props) => {
     const {closePopUpAdd, openPopUpSuccess, offer, addOffers, addedOffers} = props
@@ -70,6 +71,30 @@ const PopUpAdd = (props) => {
             {closePopUpAddHandler()}
         </div>
     )
+}
+
+PopUpAdd.propTypes = {
+    offer: PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        type: PropTypes.string.isRequired
+    }).isRequired,
+    addedOffers: PropTypes.arrayOf(PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        type: PropTypes.string.isRequired
+    })),
+    closePopUpAdd: PropTypes.func.isRequired,
+    openPopUpSuccess: PropTypes.func.isRequired,
+    addOffers: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({

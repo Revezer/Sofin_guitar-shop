@@ -61,6 +61,14 @@
     position: relative;
 }
 
+.filter__type-text:hover::before, .filter__type-text:focus::before {
+    border: 0.7px solid #585757;
+}
+
+.filter__type-text:active::before {
+    border: 0.7px solid #C1C1C1;
+}
+
 .filter__type-text::before {
     content: '';
     width: 24px;
@@ -107,6 +115,14 @@
     font-family: 'Droid Sans', 'Arial';
     font-size: 16px;
     position: relative;
+}
+
+.filter__amount-text:hover::before, .filter__amount-text:focus::before {
+    border: 0.7px solid #585757;
+}
+
+.filter__amount-text:active::before {
+    border: 0.7px solid #C1C1C1;
 }
 
 .filter__amount-text::before {

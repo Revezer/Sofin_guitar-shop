@@ -2,6 +2,7 @@ import React from "react";
 import { setPopUpSuccess } from "../../store/action";
 import {connect} from 'react-redux'
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'
 
 const PopUpSuccess = (props) => {
     const {closePopUpSuccess} = props
@@ -31,6 +32,10 @@ const PopUpSuccess = (props) => {
             {onClosePopUpAddHandler()}
         </div>
     )
+}
+
+PopUpSuccess.propTypes = {
+    closePopUpSuccess: PropTypes.func.isRequired
 }
 
 const mapDispatchToProps = (dispatch) => ({

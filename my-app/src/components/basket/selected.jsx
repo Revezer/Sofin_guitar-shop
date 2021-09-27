@@ -4,6 +4,7 @@ import Acoustic from '../../img/acoustics-mini.png'
 import Ukulele from '../../img/ukulele-mini.png'
 import { connect } from "react-redux";
 import { setOfferDelete, setPopUpDelete, setTotalPrise } from "../../store/action";
+import PropTypes from 'prop-types'
 
 const Selected = (props) => {
     const {offer, setPrice, totalPrice, openPopUp, deleteOffer} = props
@@ -79,6 +80,22 @@ const Selected = (props) => {
             <span className='selected__total'>{getNumberWithSpaces(offer.price * quantity)} ₽</span>
         </div>
     )
+}
+
+Selected.propTypes = {
+    offer: PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        type: PropTypes.string.isRequired
+    }).isRequired,
+    setPrice: PropTypes.func.isRequired,
+    totalPrice: PropTypes.number.isRequired,
+    openPopUp: PropTypes.func.isRequired,
+    deleteOffer: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({

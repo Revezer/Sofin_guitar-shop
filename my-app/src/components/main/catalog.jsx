@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import PopUpAdd from './popup-add'
 import PopUpSuccess from './popup-success'
 import { setPage } from '../../store/action'
+import PropTypes from 'prop-types'
 
 const MAXIMUM_OFFERS = 9
 
@@ -20,9 +21,6 @@ const Catalog = (props) => {
     const {sortOffers, page, setPageNumber: handlePageNumberClick, popupAdd, popupSuccess} = props
 
     let offers = []
-
-    console.log(sortOffers)
-    console.log(page)
 
     sortOffers.slice().forEach((item)=>{
     if(!offers.length || offers[offers.length-1].length === MAXIMUM_OFFERS)
@@ -112,6 +110,22 @@ const Catalog = (props) => {
         {getPopupSuccess}
         </>
     )
+}
+
+Catalog.propTypes = {
+    sortOffers: PropTypes.arrayOf(PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        type: PropTypes.string.isRequired
+    })),
+    page: PropTypes.number.isRequired,
+    popupAdd: PropTypes.bool.isRequired,
+    popupSuccess: PropTypes.bool.isRequired,
+    setPageNumber: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({

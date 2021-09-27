@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {connect} from 'react-redux'
 import { getSorting, setDownSort, setPopylaritySort, setPriceSort, setUpSort } from '../../store/action';
+import PropTypes from 'prop-types'
 
 const Sorting = (props) => {
     const {sortMoney, setSortPrice, sortPopularity, setSortPopularity, sortUp, setSortUp, sortDown, setSortDown, offers, getSorting} = props
@@ -63,6 +64,27 @@ const Sorting = (props) => {
             <button className={setDownClass} onClick={handleSwichDownClick}></button>
         </div>
     )
+}
+
+Sorting.propTypes = {
+    offers: PropTypes.arrayOf(PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        type: PropTypes.string.isRequired
+    })),
+    sortMoney: PropTypes.bool.isRequired,
+    sortPopularity: PropTypes.bool.isRequired,
+    sortUp: PropTypes.bool.isRequired,
+    sortDown: PropTypes.bool.isRequired,
+    setSortPrice: PropTypes.func.isRequired,
+    setSortPopularity: PropTypes.func.isRequired,
+    setSortUp: PropTypes.func.isRequired,
+    setSortDown: PropTypes.func.isRequired,
+    getSorting: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({

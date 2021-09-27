@@ -82,6 +82,14 @@
     border: none;
 }
 
+.basket__discount-button:hover, .basket__discount-button:focus {
+    background: #585757;
+}
+
+.basket__discount-button:active {
+    background: #9F9E9E;
+}
+
 .basket__registration {
     display: flex;
     flex-direction: column;
@@ -107,6 +115,14 @@
     letter-spacing: 1px;
     color: #FFFFFF;
     margin-top: 40px;
+}
+
+.basket__registration-button:hover, .basket__registration-button:focus {
+    background: #FFA839;
+}
+
+.basket__registration-button {
+    background: #DA8B26;
 }
 
 .basket__discount-error {

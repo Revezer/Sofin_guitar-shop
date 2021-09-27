@@ -4,6 +4,7 @@ import Acoustic from '../../img/acoustics-mini.png'
 import Ukulele from '../../img/ukulele-mini.png'
 import {connect} from 'react-redux'
 import { setOffers, setPopUpDelete } from "../../store/action";
+import { PropTypes } from "prop-types";
 
 const PopUpDelete = (props) => {
     const {offer, offers, setNewOffers, closePopUp} = props
@@ -54,6 +55,29 @@ const PopUpDelete = (props) => {
                 <button className='main-popup__close' onClick={handleClosePopupClick}></button>
         </div>
     )
+}
+
+PopUpDelete.propTypes = {
+    offer: PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        type: PropTypes.string.isRequired
+    }).isRequired,
+    offers: PropTypes.arrayOf(PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        type: PropTypes.string.isRequired
+    })).isRequired,
+    setNewOffers: PropTypes.func.isRequired,
+    closePopUp: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({

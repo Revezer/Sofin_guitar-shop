@@ -5,6 +5,7 @@ import PopUpDelete from './popup-delete';
 import SelectedComponent from './selected';
 import {connect} from 'react-redux'
 import {setTotalPrise} from '../../store/action';
+import PropTypes from 'prop-types'
 
 const DISCOUNT = {
     MIN: 0.1,
@@ -108,6 +109,21 @@ const Basket = (props) => {
             <FooterComponent/>
         </>
     )
+}
+
+Basket.propTypes = {
+    offers: PropTypes.arrayOf(PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        type: PropTypes.string.isRequired
+    })),
+    totalPrice: PropTypes.number.isRequired,
+    setPrice: PropTypes.func.isRequired,
+    popup: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = (state) => ({

@@ -14,7 +14,11 @@ export const ActionType = {
     ADDED_OFFERS: 'basket-offers',
     TOTAL_PRICE: 'basket-price',
     OFFER_DELETE: 'basket-offer-delete',
-    SORTING: 'main/catalog-sorting'
+    SORTING: 'main/catalog-sorting',
+    FILTER_PRICE: 'main/catalog-filter-price',
+    FILTER_TYPE: 'main/catalog-filter-type',
+    FILTER_STRINGS: 'main/catalog-filter-strings',
+    STRINGS: 'main/catalog-strings'
   };
 
   
@@ -96,4 +100,21 @@ export const setOfferDelete = (offer) => ({
 export const getSorting = (offers)=> ({
     type: ActionType.SORTING,
     payload: offers
+})
+
+export const getFilterPrice = () => ({
+    type: ActionType.FILTER_PRICE
+})
+
+export const getFilterType = () => ({
+    type: ActionType.FILTER_TYPE
+})
+
+export const getFilterStrings = () => ({
+    type: ActionType.FILTER_STRINGS
+})
+
+export const setStrings = (bool) => ({
+    type: ActionType.STRINGS,
+    payload: bool
 })

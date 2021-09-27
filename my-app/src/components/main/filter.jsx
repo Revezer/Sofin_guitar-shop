@@ -1,110 +1,17 @@
-import React, { useEffect, useState }  from 'react';
+import React, { useEffect }  from 'react';
 import {connect} from 'react-redux'
-import { setFilter, setOffersFilter, setPage } from '../../store/action';
-
-let filterOffersPrice = []
-let filterOffersType = []
+import {getFilterPrice, getFilterStrings, getFilterType, setFilter, setOffersFilter, setPage, setStrings } from '../../store/action';
+import PropTypes from 'prop-types'
 
 const Filter = (props) => {
-    const {offers, filter, setFilter, setFilterOffers, setPage} = props
-
-    const [typeFour, setTypeFour] = useState(true)
-    const [typeSix, setTypeSix] = useState(true)
-    const [typeSeven, setTypeSeven] = useState(true)
-    const [typeTwelve, setTypeTwelve] = useState(true)
+    const {offers, filter, setFilter, setPage, getFilterPrice, getFilterType, setStrings, strings, getFilterStrings, four, six, seven, twelve} = props
 
     useEffect(() => {
         setPage(1)
-
-        const setFilterPrice = () => {
-            filterOffersPrice = offers.filter(offer => offer.price >= filter.minPrice && offer.price <= filter.maxPrice)
-        }
-    
-        const setFilterType = () => {
-            if(filter.acoustics && filter.electro && filter.ukulele) {
-                setTypeFour(true)
-                setTypeSix(true)
-                setTypeSeven(true)
-                setTypeTwelve(true)
-                return(filterOffersType = filterOffersPrice)
-            } else if (filter.acoustics && filter.electro) {
-                setTypeFour(true)
-                setTypeSix(true)
-                setTypeSeven(true)
-                setTypeTwelve(true)
-                return(filterOffersType = filterOffersPrice.filter(offer => offer.type === 'акустическая гитара' || offer.type === 'электрогитара'))
-            } else if (filter.acoustics && filter.ukulele) {
-                setTypeFour(true)
-                setTypeSix(true)
-                setTypeSeven(true)
-                setTypeTwelve(true)
-                return(filterOffersType = filterOffersPrice.filter(offer => offer.type === 'акустическая гитара' || offer.type === 'укулеле'))
-            } else if (filter.electro && filter.ukulele) {
-                setTypeFour(true)
-                setTypeSix(true)
-                setTypeSeven(true)
-                setTypeTwelve(false)
-                return(filterOffersType = filterOffersPrice.filter(offer => offer.type === 'электрогитара' || offer.type === 'укулеле'))
-            } else if (filter.acoustics) {
-                setTypeFour(false)
-                setTypeSix(true)
-                setTypeSeven(true)
-                setTypeTwelve(true)
-                return(filterOffersType = filterOffersPrice.filter(offer => offer.type === 'акустическая гитара'))
-            } else if (filter.electro) {
-                setTypeFour(true)
-                setTypeSix(true)
-                setTypeSeven(true)
-                setTypeTwelve(false)
-                return(filterOffersType = filterOffersPrice.filter(offer => offer.type === 'электрогитара'))
-            } else if (filter.ukulele) {
-                setTypeFour(true)
-                setTypeSix(false)
-                setTypeSeven(false)
-                setTypeTwelve(false)
-                return(filterOffersType = filterOffersPrice.filter(offer => offer.type === 'укулеле'))
-            } else {
-                setTypeFour(true)
-                setTypeSix(true)
-                setTypeSeven(true)
-                setTypeTwelve(true)
-                return(filterOffersType = filterOffersPrice)
-            }
-        }
-    
-        const setFilterStrings = () => {
-            let filterOffersString = []
-            let temporaryOffers = 0
-            if(filter.four) {
-                temporaryOffers = filterOffersType.filter(offer => offer.strings === 4)
-                Array.prototype.push.apply(filterOffersString, temporaryOffers);
-            }
-            if (filter.six) {
-                temporaryOffers = filterOffersType.filter(offer => offer.strings === 6)
-                Array.prototype.push.apply(filterOffersString, temporaryOffers);
-            }
-            if (filter.seven) {
-                temporaryOffers = filterOffersType.filter(offer => offer.strings === 7)
-                Array.prototype.push.apply(filterOffersString, temporaryOffers);
-            }
-            if (filter.twelve) {
-                temporaryOffers = filterOffersType.filter(offer => offer.strings === 12)
-                Array.prototype.push.apply(filterOffersString, temporaryOffers);
-            }
-            if(filter.four === false && filter.six === false && filter.seven === false && filter.twelve === false) {
-                filterOffersString = filterOffersType
-            }
-            setFilterOffers(filterOffersString)
-        }
-
-        const setBigFilter = () => {
-            setFilterPrice()
-            setFilterType()
-            setFilterStrings()
-        }
-
-        setBigFilter()
-    },[filter, offers, setFilterOffers, setPage])
+        getFilterPrice()
+        getFilterType()
+        getFilterStrings()
+    },[filter, offers, setPage, strings, getFilterStrings, getFilterType, getFilterPrice])
 
     const onChangeMinPrice = (event) => {
         let number = Number(event.target.value.replace(/\s/g, ''))
@@ -160,29 +67,29 @@ const Filter = (props) => {
     }
 
     const handleChangeFourClick = (event) => {
-        setFilter({
-            ...filter,
+        setStrings({
+            ...strings,
             four: event.target.checked
         })
     }
 
     const handleChangeSixClick = (event) => {
-        setFilter({
-            ...filter,
+        setStrings({
+            ...strings,
             six: event.target.checked
         })
     }
 
     const handleChangeSevenClick = (event) => {
-        setFilter({
-            ...filter,
+        setStrings({
+            ...strings,
             seven: event.target.checked
         })
     }
 
     const handleChangeTwelveClick = (event) => {
-        setFilter({
-            ...filter,
+        setStrings({
+            ...strings,
             twelve: event.target.checked
         })
     }
@@ -191,13 +98,13 @@ const Filter = (props) => {
     const getClassTypeElectro = filter.electro ? 'filter__type-text filter__type-text--active' : 'filter__type-text'
     const getClassTypeUkulele = filter.ukulele ? 'filter__type-text filter__type-text--active' : 'filter__type-text'
 
-    const getClassTypeFour = filter.four ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
-    const getClassTypeSix = filter.six ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
-    const getClassTypeSeven = filter.seven ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
-    const getClassTypeTwelve = filter.twelve ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
+    const getClassTypeFour = strings.four ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
+    const getClassTypeSix = strings.six ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
+    const getClassTypeSeven = strings.seven ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
+    const getClassTypeTwelve = strings.twelve ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
 
     const getInputFour = () => {
-        if(typeFour) {
+        if(four) {
             return(
                 <label>
                     <input className='filter__input-amount' onClick={handleChangeFourClick} type='checkbox'/>
@@ -215,7 +122,7 @@ const Filter = (props) => {
     }
 
     const getInputSix = () => {
-        if(typeSix) {
+        if(six) {
             return(
                 <label>
                     <input className='filter__input-amount' onClick={handleChangeSixClick} type='checkbox'/>
@@ -233,7 +140,7 @@ const Filter = (props) => {
     }
 
     const getInputSeven = () => {
-        if(typeSeven) {
+        if(seven) {
             return(
                 <label>
                     <input className='filter__input-amount' onClick={handleChangeSevenClick} type='checkbox'/>
@@ -251,7 +158,7 @@ const Filter = (props) => {
     }
 
     const getInputTwelve = () => {
-        if(typeTwelve) {
+        if(twelve) {
             return(
                 <label>
                     <input className='filter__input-amount' onClick={handleChangeTwelveClick} type='checkbox'/>
@@ -312,9 +219,49 @@ const Filter = (props) => {
     )
 }
 
+Filter.propTypes = {
+    offers: PropTypes.arrayOf(PropTypes.shape({
+        code: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        popularity: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        type: PropTypes.string.isRequired
+    })),
+    filter: PropTypes.shape({
+        minPrice: PropTypes.number.isRequired,
+        maxPrice: PropTypes.number.isRequired,
+        acoustics: PropTypes.bool.isRequired,
+        electro: PropTypes.bool.isRequired,
+        ukulele: PropTypes.bool.isRequired
+    }).isRequired,
+    strings: PropTypes.shape({
+        four: PropTypes.bool.isRequired,
+        six: PropTypes.bool.isRequired,
+        seven: PropTypes.bool.isRequired,
+        twelve: PropTypes.bool.isRequired,
+    }).isRequired,
+    four: PropTypes.bool.isRequired,
+    six: PropTypes.bool.isRequired,
+    seven: PropTypes.bool.isRequired,
+    twelve: PropTypes.bool.isRequired,
+    setFilter: PropTypes.func.isRequired,
+    setPage: PropTypes.func.isRequired,
+    getFilterPrice: PropTypes.func.isRequired,
+    getFilterType: PropTypes.func.isRequired,
+    getFilterStrings: PropTypes.func.isRequired,
+    setStrings: PropTypes.func.isRequired
+}
+
 const mapStateToProps = (state) => ({
     offers: state.filters.offers,
-    filter: state.filters.filter
+    filter: state.filters.filter,
+    strings: state.filters.stringsActive,
+    four: state.filters.four,
+    six: state.filters.six,
+    seven: state.filters.seven,
+    twelve: state.filters.twelve,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -326,6 +273,18 @@ const mapDispatchToProps = (dispatch) => ({
     },
     setPage(number) {
         dispatch(setPage(number))
+    },
+    getFilterPrice() {
+        dispatch(getFilterPrice())
+    },
+    getFilterType() {
+        dispatch(getFilterType())
+    },
+    getFilterStrings() {
+        dispatch(getFilterStrings())
+    },
+    setStrings(bool) {
+        dispatch(setStrings(bool))
     }
 })
 

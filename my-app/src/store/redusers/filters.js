@@ -9,6 +9,12 @@ const initialState = {
         acoustics: false,
         electro: false,
         ukulele: false,
+    },
+    four: true,
+    six: true,
+    seven: true,
+    twelve: true,
+    stringsActive: {
         four: false,
         six: false,
         seven: false,
@@ -40,6 +46,115 @@ export default function counter(state = initialState, action) {
             return {
                 ...state,
                 totalPrice: action.payload
+            }
+        case ActionType.FILTER_PRICE:
+            return {
+                ...state,
+                filterOffers: state.offers.filter(offer => offer.price >= state.filter.minPrice && offer.price <= state.filter.maxPrice)
+            }
+        case ActionType.FILTER_TYPE:
+            if(state.filter.acoustics && state.filter.electro && state.filter.ukulele) {
+                return {
+                    ...state,
+                    four: true,
+                    six: true,
+                    seven: true,
+                    twelve: true,
+                    filterOffers: state.filterOffers
+                }
+            } else if (state.filter.acoustics && state.filter.electro) {
+                return {
+                    ...state,
+                    four: true,
+                    six: true,
+                    seven: true,
+                    twelve: true,
+                    filterOffers: state.filterOffers.filter(offer => offer.type === 'акустическая гитара' || offer.type === 'электрогитара')
+                }
+            } else if (state.filter.acoustics && state.filter.ukulele) {
+                return {
+                    ...state,
+                    four: true,
+                    six: true,
+                    seven: true,
+                    twelve: true,
+                    filterOffers: state.filterOffers.filter(offer => offer.type === 'акустическая гитара' || offer.type === 'укулеле')
+                }
+            } else if (state.filter.electro && state.filter.ukulele) {
+                return {
+                    ...state,
+                    four: true,
+                    six: true,
+                    seven: true,
+                    twelve: false,
+                    filterOffers: state.filterOffers.filter(offer => offer.type === 'электрогитара' || offer.type === 'укулеле')
+                }
+            } else if (state.filter.acoustics) {
+                return {
+                    ...state,
+                    four: false,
+                    six: true,
+                    seven: true,
+                    twelve: true,
+                    filterOffers: state.filterOffers.slice().filter(offer => offer.type === 'акустическая гитара')
+                }
+            } else if (state.filter.electro) {
+                return {
+                    ...state,
+                    four: true,
+                    six: true,
+                    seven: true,
+                    twelve: false,
+                    filterOffers: state.filterOffers.filter(offer => offer.type === 'электрогитара')
+                }
+            } else if (state.filter.ukulele) {
+                return {
+                    ...state,
+                    four: true,
+                    six: false,
+                    seven: false,
+                    twelve: false,
+                    filterOffers: state.filterOffers.filter(offer => offer.type === 'укулеле')
+                }
+            } else {
+                return {
+                    ...state,
+                    four: true,
+                    six: true,
+                    seven: true,
+                    twelve: true,
+                }
+            }
+        case ActionType.FILTER_STRINGS:
+            let filterOffersString = []
+            let temporaryOffers = []
+            if(state.stringsActive.four) {
+                temporaryOffers = state.filterOffers.filter(offer => offer.strings === 4)
+                Array.prototype.push.apply(filterOffersString, temporaryOffers);
+            }
+            if (state.stringsActive.six) {
+                temporaryOffers = state.filterOffers.filter(offer => offer.strings === 6)
+                Array.prototype.push.apply(filterOffersString, temporaryOffers);
+            }
+            if (state.stringsActive.seven) {
+                temporaryOffers = state.filterOffers.filter(offer => offer.strings === 7)
+                Array.prototype.push.apply(filterOffersString, temporaryOffers);
+            }
+            if (state.stringsActive.twelve) {
+                temporaryOffers = state.filterOffers.filter(offer => offer.strings === 12)
+                Array.prototype.push.apply(filterOffersString, temporaryOffers);
+            }
+            if(state.stringsActive.four === false && state.stringsActive.six === false && state.stringsActive.seven === false && state.stringsActive.twelve === false) {
+                filterOffersString = state.filterOffers
+            }
+            return {
+                ...state,
+                filterOffers: filterOffersString
+            }
+        case ActionType.STRINGS:
+            return {
+                ...state,
+                stringsActive: action.payload
             }
         default: return state
     }

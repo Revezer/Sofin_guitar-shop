@@ -48,6 +48,14 @@
     letter-spacing: 1px;
 }
 
+.list-link__item:hover, .list-link__item:focus {
+    color: #474747;
+}
+
+.list-link__item:active {
+    color: rgba(71, 71, 71, 0.5);
+}
+
 .header__list-icon {
     display: flex;
     list-style-type: none;
@@ -66,4 +74,12 @@
     position: absolute;
     top: -3px;
     left: 156px;
+}
+
+.list-icon__item:hover, .list-icon__item:focus {
+    opacity: 0.7;
+}
+
+.list-icon__item:active {
+    opacity: 0.5;
 }
