@@ -6,7 +6,6 @@
 .main__conteiner {
     display: grid;
     grid-template-columns: 208px 700px;
-    grid-template-rows: 22px 972px;
     grid-template-areas: 
         'filters sorting'
         'filters catalog';
@@ -29,7 +28,6 @@
     display: grid;
     grid-template-columns: 220px 220px 220px;
     grid-column-gap: 20px;
-    grid-template-rows: 304px 304px 304px;
     grid-row-gap: 30px;
 }
 

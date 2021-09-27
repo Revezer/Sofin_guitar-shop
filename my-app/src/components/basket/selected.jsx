@@ -23,14 +23,14 @@ const Selected = (props) => {
 
     const [quantity, setQuantity] = useState(1)
 
-    const onPlusButton = () => {
+    const handlePlusButtonClick = () => {
         setQuantity(quantity + 1)
         setPrice(totalPrice + offer.price * quantity)
     }
 
-    const onMinusButton = () => {
+    const handleMinusButtonClick = () => {
         if(quantity === 1) {
-            openDeletePopUp()
+            handleOpenDeletePopUpClick()
         }
         if(quantity > 1) {
             setQuantity(quantity - 1)
@@ -38,7 +38,7 @@ const Selected = (props) => {
         }
     }
 
-    const openDeletePopUp = () => {
+    const handleOpenDeletePopUpClick = () => {
         document.body.classList.add('openPopUp')
         deleteOffer(offer)
         openPopUp(true)
@@ -61,7 +61,7 @@ const Selected = (props) => {
 
     return(
         <div className='basket__selected selected'>
-            <button className='selected__delete' onClick={openDeletePopUp}></button>
+            <button className='selected__delete' onClick={handleOpenDeletePopUpClick}></button>
             <img className='selected__img' src={getGuitagImg()} alt='фото гитары'></img>
             <div className='selected__info-conteiner'>
                 <h3 className='selected__name'>{offer.name}</h3>
@@ -72,9 +72,9 @@ const Selected = (props) => {
             </div>
             <span className='selected__price'>{getNumberWithSpaces(offer.price)} ₽</span>
             <div className='selected__buttons'>
-                <button className='selected__button' onClick={onMinusButton}>-</button>
+                <button className='selected__button' onClick={handleMinusButtonClick}>-</button>
                 <span className='selected__number'>{quantity}</span>
-                <button className='selected__button' onClick={onPlusButton}>+</button>
+                <button className='selected__button' onClick={handlePlusButtonClick}>+</button>
             </div>
             <span className='selected__total'>{getNumberWithSpaces(offer.price * quantity)} ₽</span>
         </div>
@@ -82,7 +82,7 @@ const Selected = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    totalPrice: state.totalPrice
+    totalPrice: state.filters.totalPrice
 })
 
 const mapDispatchToProps = (dispatch) => ({

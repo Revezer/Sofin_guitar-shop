@@ -63,7 +63,7 @@ const Header = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    addedOffers: state.addedOffers
+    addedOffers: state.filters.addedOffers
 })
 
 export default connect(mapStateToProps, null)(Header)

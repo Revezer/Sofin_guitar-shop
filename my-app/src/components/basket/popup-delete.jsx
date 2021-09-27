@@ -8,7 +8,7 @@ import { setOffers, setPopUpDelete } from "../../store/action";
 const PopUpDelete = (props) => {
     const {offer, offers, setNewOffers, closePopUp} = props
 
-    const onClickClosePopup = () => {
+    const handleClosePopupClick = () => {
         closePopUp(false)
         document.body.classList.remove('openPopUp')
     }
@@ -25,10 +25,10 @@ const PopUpDelete = (props) => {
                 return(Acoustic)
         }
     }
-    const deleteOffer = () => {
+    const handleDeleteOfferClick = () => {
         const array = offers.slice()
         setNewOffers(array.filter(element => element.id !== offer.id))
-        onClickClosePopup()
+        handleClosePopupClick()
     }
 
     const getNumberWithSpaces = (number) => {
@@ -47,18 +47,18 @@ const PopUpDelete = (props) => {
                     <h3 className='main-popup__price'>Цена: {getNumberWithSpaces(offer.price)} ₽</h3>
                 </div>
                 <div className='main-popup__container-button'>
-                    <button className='main-popup__button' onClick={deleteOffer} >Удалить товар</button>
-                    <button className='main-popup__button-proceed' onClick={onClickClosePopup}>Продолжить покупки</button>
+                    <button className='main-popup__button' onClick={handleDeleteOfferClick} >Удалить товар</button>
+                    <button className='main-popup__button-proceed' onClick={handleClosePopupClick}>Продолжить покупки</button>
                 </div>
             </div>
-                <button className='main-popup__close' onClick={onClickClosePopup}></button>
+                <button className='main-popup__close' onClick={handleClosePopupClick}></button>
         </div>
     )
 }
 
 const mapStateToProps = (state) => ({
-    offer: state.offerDelete,
-    offers: state.addedOffers,
+    offer: state.popups.offerDelete,
+    offers: state.filters.addedOffers,
 
 })
 

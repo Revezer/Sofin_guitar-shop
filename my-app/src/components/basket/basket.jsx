@@ -6,10 +6,12 @@ import SelectedComponent from './selected';
 import {connect} from 'react-redux'
 import {setTotalPrise} from '../../store/action';
 
-const DISCOUNT_MIN = 0.1
-const DISCOUNT_MAX = 0.3
-const DISCOUNT_SUPER = 700
-const DISCOUNT_GITARA = 3000
+const DISCOUNT = {
+    MIN: 0.1,
+    MAX: 0.3,
+    SUPER: 700,
+    GITARA: 3000
+}
 
 const Basket = (props) => {
     const {offers, totalPrice, setPrice, popup} = props
@@ -25,15 +27,7 @@ const Basket = (props) => {
         })
     },[offers, setPrice])
 
-    const getOffers = () => {
-        if (offers.length === 0) {
-            return(<></>)
-        } else {
-            return(
-                offers.map((offer, index) => <SelectedComponent key={offer + index} offer={offers[index]} index={index} />)
-            )
-        }
-    }
+    const getOffers = offers.length === 0 ? <></> : offers.map((offer, index) => <SelectedComponent key={offer + index} offer={offers[index]} index={index}/>)
 
     const openPopUp = popup ? <PopUpDelete/> : ''
 
@@ -45,16 +39,16 @@ const Basket = (props) => {
     const setdiscount = () => {
         switch(promoCode) {
             case 'GITARAHIT':
-                let discountA = totalPrice * DISCOUNT_MIN
+                let discountA = totalPrice * DISCOUNT.MIN
                 return (totalPrice - discountA)
             case 'SUPERGITARA':
-                return (totalPrice - DISCOUNT_SUPER)
+                return (totalPrice - DISCOUNT.SUPER)
             case 'GITARA2020':
-                let discountB = totalPrice * DISCOUNT_MAX
-                if(discountB < DISCOUNT_GITARA) {
+                let discountB = totalPrice * DISCOUNT.MAX
+                if(discountB < DISCOUNT.GITARA) {
                     return(totalPrice - discountB)
-                } else if(discountB >= DISCOUNT_GITARA) {
-                    return(totalPrice - DISCOUNT_GITARA)
+                } else if(discountB >= DISCOUNT.GITARA) {
+                    return(totalPrice - DISCOUNT.GITARA)
                 }
                 break
             default:
@@ -62,7 +56,7 @@ const Basket = (props) => {
         }
     }
 
-    const getPromoCode = () => {
+    const handlePromoCodeClick = () => {
         let input = document.querySelector('.basket__discount-input')
         if (input.value !== 'GITARAHIT' && input.value !== 'SUPERGITARA' && input.value !== 'GITARA2020') {
             setError(true)
@@ -89,7 +83,7 @@ const Basket = (props) => {
                     <span className='basket__text'>Оформляем</span>
                 </div>
                 <div className='basket__selecteds'>
-                    {getOffers()}
+                    {getOffers}
                 </div>
                 <div className='basket__completion-container'>
                     <div>
@@ -97,8 +91,10 @@ const Basket = (props) => {
                         <span className='basket__discount-info'>Введите свой промокод, если он у вас есть.</span>
                         <div className='basket__discount-container'>
                             <span className={textError}>Промокод не действителен</span>
-                            <input className='basket__discount-input'></input>
-                            <button className='basket__discount-button' onClick={getPromoCode}>Применить купон</button>
+                            <label>
+                                <input className='basket__discount-input'></input>
+                            </label>
+                            <button className='basket__discount-button' onClick={handlePromoCodeClick}>Применить купон</button>
                         </div>
                     </div>
                     <div className='basket__registration'>
@@ -115,9 +111,9 @@ const Basket = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    offers: state.addedOffers,
-    totalPrice: state.totalPrice,
-    popup: state.popupDelete,
+    offers: state.filters.addedOffers,
+    totalPrice: state.filters.totalPrice,
+    popup: state.popups.popupDelete,
 })
 
 const mapDispatchToProps = (dispatch) => ({

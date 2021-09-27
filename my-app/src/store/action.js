@@ -13,7 +13,8 @@ export const ActionType = {
     ADD_OFFER: 'main/catalog-offer',
     ADDED_OFFERS: 'basket-offers',
     TOTAL_PRICE: 'basket-price',
-    OFFER_DELETE: 'basket-offer-delete'
+    OFFER_DELETE: 'basket-offer-delete',
+    SORTING: 'main/catalog-sorting'
   };
 
   
@@ -90,4 +91,9 @@ export const setTotalPrise = (price) => ({
 export const setOfferDelete = (offer) => ({
     type: ActionType.OFFER_DELETE,
     payload: offer
+})
+
+export const getSorting = (offers)=> ({
+    type: ActionType.SORTING,
+    payload: offers
 })

@@ -15,7 +15,7 @@ const PopUpSuccess = (props) => {
         };
     }
 
-    const closePopup = () => {
+    const handleClosePopupClick = () => {
         closePopUpSuccess(false)
         document.body.classList.remove('openPopUp')
     }
@@ -24,10 +24,10 @@ const PopUpSuccess = (props) => {
         <div className='popup-success'>
             <h3 className='popup-success__title'>Товар успешно добавлен в корзину</h3>
             <div className='popup-success__container'>
-                <Link className='popup-success__link' to='/basket'onClick={closePopup}>Перейти в корзину</Link>
-                <button className='popup-success__button' onClick={closePopup}>Продолжить покупки</button>
+                <Link className='popup-success__link' to='/basket'onClick={handleClosePopupClick}>Перейти в корзину</Link>
+                <button className='popup-success__button' onClick={handleClosePopupClick}>Продолжить покупки</button>
             </div>
-            <button className='popup-success__close' onClick={closePopup}></button>
+            <button className='popup-success__close' onClick={handleClosePopupClick}></button>
             {onClosePopUpAddHandler()}
         </div>
     )

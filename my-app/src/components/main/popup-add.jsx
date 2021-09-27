@@ -29,12 +29,12 @@ const PopUpAdd = (props) => {
         };
     }
 
-    const onClosePopup = () => {
+    const handleClosePopupClick = () => {
         closePopUpAdd(false)
         document.body.classList.remove('openPopUp')
     }
 
-    const onPopUpSuccessOpen = () => {
+    const handlePopUpSuccessOpenClick = () => {
         const offers = addedOffers.slice()
         offers.push(offer)
         addOffers(offers)
@@ -64,17 +64,17 @@ const PopUpAdd = (props) => {
                     <span className='main-popup__info'>{offer.type}, {offer.strings} струнная </span>
                     <h3 className='main-popup__price'>Цена: {getNumberWithSpaces(offer.price)} ₽</h3>
                 </div>
-                <button className='main-popup__button' onClick={onPopUpSuccessOpen}>Добавить в корзину</button>
+                <button className='main-popup__button' onClick={handlePopUpSuccessOpenClick}>Добавить в корзину</button>
             </div>
-            <button className='main-popup__close' onClick={onClosePopup}></button>
+            <button className='main-popup__close' onClick={handleClosePopupClick}></button>
             {closePopUpAddHandler()}
         </div>
     )
 }
 
 const mapStateToProps = (state) => ({
-    offer: state.addOffer,
-    addedOffers: state.addedOffers
+    offer: state.popups.addOffer,
+    addedOffers: state.filters.addedOffers
 })
 
 const mapDispatchToProps = (dispatch) => ({

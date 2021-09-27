@@ -138,49 +138,49 @@ const Filter = (props) => {
         }
     }
 
-    const onChangeAcoustics = (event) => {
+    const handleChangeAcousticsClick = (event) => {
         setFilter({
             ...filter,
             acoustics: event.target.checked
         })
     }
 
-    const onChangeElectro = (event) => {
+    const handleChangeElectroClick = (event) => {
         setFilter({
             ...filter,
             electro: event.target.checked
         })
     }
 
-    const onChangeUkulele = (event) => {
+    const handleChangeUkuleleClick = (event) => {
         setFilter({
             ...filter,
             ukulele: event.target.checked
         })
     }
 
-    const onChangeFour = (event) => {
+    const handleChangeFourClick = (event) => {
         setFilter({
             ...filter,
             four: event.target.checked
         })
     }
 
-    const onChangeSix = (event) => {
+    const handleChangeSixClick = (event) => {
         setFilter({
             ...filter,
             six: event.target.checked
         })
     }
 
-    const onChangeSeven = (event) => {
+    const handleChangeSevenClick = (event) => {
         setFilter({
             ...filter,
             seven: event.target.checked
         })
     }
 
-    const onChangeTwelve = (event) => {
+    const handleChangeTwelveClick = (event) => {
         setFilter({
             ...filter,
             twelve: event.target.checked
@@ -200,7 +200,7 @@ const Filter = (props) => {
         if(typeFour) {
             return(
                 <label>
-                    <input className='filter__input-amount' onClick={onChangeFour} type='checkbox'/>
+                    <input className='filter__input-amount' onClick={handleChangeFourClick} type='checkbox'/>
                     <span className={getClassTypeFour}>4</span>
                 </label>
             )
@@ -218,7 +218,7 @@ const Filter = (props) => {
         if(typeSix) {
             return(
                 <label>
-                    <input className='filter__input-amount' onClick={onChangeSix} type='checkbox'/>
+                    <input className='filter__input-amount' onClick={handleChangeSixClick} type='checkbox'/>
                     <span className={getClassTypeSix}>6</span>
                 </label>
             )
@@ -236,7 +236,7 @@ const Filter = (props) => {
         if(typeSeven) {
             return(
                 <label>
-                    <input className='filter__input-amount' onClick={onChangeSeven} type='checkbox'/>
+                    <input className='filter__input-amount' onClick={handleChangeSevenClick} type='checkbox'/>
                     <span className={getClassTypeSeven}>7</span>
                 </label>
             )
@@ -254,7 +254,7 @@ const Filter = (props) => {
         if(typeTwelve) {
             return(
                 <label>
-                    <input className='filter__input-amount' onClick={onChangeTwelve} type='checkbox'/>
+                    <input className='filter__input-amount' onClick={handleChangeTwelveClick} type='checkbox'/>
                     <span className={getClassTypeTwelve}>12</span>
                 </label>
             )
@@ -286,15 +286,15 @@ const Filter = (props) => {
                 <h3 className='filter__type-subtitle'>Тип гитар</h3>
                 <div className='filter__inputs-type'>
                     <label>
-                        <input className='filter__input-type' onClick={onChangeAcoustics} type='checkbox'/>
+                        <input className='filter__input-type' onClick={handleChangeAcousticsClick} type='checkbox'/>
                         <span className={getClassTypeAcoustics}>Акустические гитары</span>
                     </label>
                     <label>
-                        <input className='filter__input-type' onClick={onChangeElectro} type='checkbox'/>
+                        <input className='filter__input-type' onClick={handleChangeElectroClick} type='checkbox'/>
                         <span className={getClassTypeElectro}>Электрогитары</span>
                     </label>
                     <label>
-                        <input className='filter__input-type' onClick={onChangeUkulele} type='checkbox'/>
+                        <input className='filter__input-type' onClick={handleChangeUkuleleClick} type='checkbox'/>
                         <span className={getClassTypeUkulele}>Укулеле</span>
                     </label>
                 </div>
@@ -313,8 +313,8 @@ const Filter = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    offers: state.offers,
-    filter: state.filter
+    offers: state.filters.offers,
+    filter: state.filters.filter
 })
 
 const mapDispatchToProps = (dispatch) => ({

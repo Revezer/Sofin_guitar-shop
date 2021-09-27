@@ -1,56 +1,15 @@
-import React, { useEffect }  from 'react';
+import React, { useEffect } from 'react';
 import {connect} from 'react-redux'
-import { setDownSort, setOffersSort, setPopylaritySort, setPriceSort, setUpSort } from '../../store/action';
+import { getSorting, setDownSort, setPopylaritySort, setPriceSort, setUpSort } from '../../store/action';
 
 const Sorting = (props) => {
-    const {sortMoney, setSortPrice, sortPopularity, setSortPopularity, sortUp, setSortUp, sortDown, setSortDown, offers, setSortOffers} = props
-
-    function sortPopularityLowToHigh(offerA, offerB) {
-        return (offerA.popularity - offerB.popularity);
-    }
-
-    function sortPopularityHighToLow(offerA, offerB) {
-        return (offerB.popularity - offerA.popularity);
-    }
-      
-    function sortPriceLowToHigh(offerA, offerB) {
-        return (offerB.price - offerA.price);
-    }
-      
-    function sortPriceHighToLow(offerA, offerB) {
-        return (offerA.price - offerB.price);
-    }
+    const {sortMoney, setSortPrice, sortPopularity, setSortPopularity, sortUp, setSortUp, sortDown, setSortDown, offers, getSorting} = props
 
     useEffect(() => {
-        const getOffersSort = () => {
-            switch(true) {
-                case sortMoney:
-                    switch(true) {
-                        case sortUp:
-                            return offers.slice().sort(sortPriceHighToLow);
-                        case sortDown:
-                            return offers.slice().sort(sortPriceLowToHigh);
-                        default:
-                            return offers.slice().sort(sortPriceHighToLow);
-                    }
-                case sortPopularity:
-                    switch(true) {
-                        case sortUp:
-                            return offers.slice().sort(sortPopularityLowToHigh);
-                        case sortDown:
-                            return offers.slice().sort(sortPopularityHighToLow);
-                        default:
-                            return offers.slice().sort(sortPopularityLowToHigh);
-                    }
-                default:
-                    return(offers.slice())
-            }
-        }
+        getSorting(offers)
+    },[offers, getSorting, sortMoney, sortPopularity, sortUp, sortDown])
 
-        setSortOffers(getOffersSort())
-    }, [sortMoney, sortPopularity, sortUp, sortDown, offers, setSortOffers])
-
-    const setSwichSortPrice = () => {
+    const handleSwichSortPriceClick = () => {
         if(sortMoney === false) {
             setSortPopularity(false)
             if(sortUp === false && sortDown === false) {
@@ -60,7 +19,7 @@ const Sorting = (props) => {
         setSortPrice(!sortMoney)
     }
 
-    const setSwichPopularity = () => {
+    const handleSwichPopularityClick = () => {
         if(sortPopularity === false) {
             setSortPrice(false)
             if(sortUp === false && sortDown === false) {
@@ -70,7 +29,7 @@ const Sorting = (props) => {
         setSortPopularity(!sortPopularity)
     }
 
-    const setSwichUp = () => {
+    const handleSwichUpClick = () => {
         if(sortUp === false) {
             setSortDown(false)
             if(sortMoney === false && sortPopularity === false) {
@@ -80,7 +39,7 @@ const Sorting = (props) => {
         setSortUp(!sortUp)
     }
 
-    const setSwichDown = () => {
+    const handleSwichDownClick = () => {
         if(sortDown === false) {
             setSortUp(false)
             if(sortMoney === false && sortPopularity === false) {
@@ -98,20 +57,20 @@ const Sorting = (props) => {
     return(
         <div className='main__sorting sorting'>
             <span className='sorting__title'>Сортировать:</span>
-            <button className={setMoneyClass} onClick={setSwichSortPrice}>по цене</button>
-            <button className={setPopylarityClass} onClick={setSwichPopularity}>по популярности</button>
-            <button className={setUpClass} onClick={setSwichUp}></button>
-            <button className={setDownClass} onClick={setSwichDown}></button>
+            <button className={setMoneyClass} onClick={handleSwichSortPriceClick}>по цене</button>
+            <button className={setPopylarityClass} onClick={handleSwichPopularityClick}>по популярности</button>
+            <button className={setUpClass} onClick={handleSwichUpClick}></button>
+            <button className={setDownClass} onClick={handleSwichDownClick}></button>
         </div>
     )
 }
 
 const mapStateToProps = (state) => ({
-    sortMoney: state.sortMoney,
-    sortPopularity: state.sortPopularity,
-    sortUp: state.sortUp,
-    sortDown: state.sortDown,
-    offers: state.filterOffers
+    sortMoney: state.sorting.sortMoney,
+    sortPopularity: state.sorting.sortPopularity,
+    sortUp: state.sorting.sortUp,
+    sortDown: state.sorting.sortDown,
+    offers: state.filters.filterOffers
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -127,8 +86,8 @@ const mapDispatchToProps = (dispatch) => ({
     setSortDown(bool) {
         dispatch(setDownSort(bool))
     },
-    setSortOffers(offers) {
-        dispatch(setOffersSort(offers))
+    getSorting(offers) {
+        dispatch(getSorting(offers))
     }
 })
 

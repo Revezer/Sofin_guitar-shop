@@ -23,7 +23,7 @@ const Offer = (props) => {
         }
     }
 
-    const onPopupAddOpen = () => {
+    const handlePopupAddOpenClick = () => {
         setPopUpAdd(true)
         setOffer(offer)
         window.onkeydown = (evt) => {
@@ -56,7 +56,7 @@ const Offer = (props) => {
             </div>
             <div className='offer__button-conteiner'>
                 <button className='offer__info'>Подробнее</button>
-                <button className='offer__buy' onClick={onPopupAddOpen}>
+                <button className='offer__buy' onClick={handlePopupAddOpenClick}>
                     <img className='offer__buy-icon' src={Basket} alt='иконка корзины'/>Купить
                     </button>
             </div>
