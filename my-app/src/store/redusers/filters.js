@@ -53,77 +53,78 @@ export default function counter(state = initialState, action) {
                 filterOffers: state.offers.filter(offer => offer.price >= state.filter.minPrice && offer.price <= state.filter.maxPrice)
             }
         case ActionType.FILTER_TYPE:
-            if(state.filter.acoustics && state.filter.electro && state.filter.ukulele) {
-                return {
-                    ...state,
-                    four: true,
-                    six: true,
-                    seven: true,
-                    twelve: true,
-                    filterOffers: state.filterOffers
-                }
-            } else if (state.filter.acoustics && state.filter.electro) {
-                return {
-                    ...state,
-                    four: true,
-                    six: true,
-                    seven: true,
-                    twelve: true,
-                    filterOffers: state.filterOffers.filter(offer => offer.type === 'акустическая гитара' || offer.type === 'электрогитара')
-                }
-            } else if (state.filter.acoustics && state.filter.ukulele) {
-                return {
-                    ...state,
-                    four: true,
-                    six: true,
-                    seven: true,
-                    twelve: true,
-                    filterOffers: state.filterOffers.filter(offer => offer.type === 'акустическая гитара' || offer.type === 'укулеле')
-                }
-            } else if (state.filter.electro && state.filter.ukulele) {
-                return {
-                    ...state,
-                    four: true,
-                    six: true,
-                    seven: true,
-                    twelve: false,
-                    filterOffers: state.filterOffers.filter(offer => offer.type === 'электрогитара' || offer.type === 'укулеле')
-                }
-            } else if (state.filter.acoustics) {
-                return {
-                    ...state,
-                    four: false,
-                    six: true,
-                    seven: true,
-                    twelve: true,
-                    filterOffers: state.filterOffers.slice().filter(offer => offer.type === 'акустическая гитара')
-                }
-            } else if (state.filter.electro) {
-                return {
-                    ...state,
-                    four: true,
-                    six: true,
-                    seven: true,
-                    twelve: false,
-                    filterOffers: state.filterOffers.filter(offer => offer.type === 'электрогитара')
-                }
-            } else if (state.filter.ukulele) {
-                return {
-                    ...state,
-                    four: true,
-                    six: false,
-                    seven: false,
-                    twelve: false,
-                    filterOffers: state.filterOffers.filter(offer => offer.type === 'укулеле')
-                }
-            } else {
-                return {
-                    ...state,
-                    four: true,
-                    six: true,
-                    seven: true,
-                    twelve: true,
-                }
+            switch (true){
+                case state.filter.acoustics && state.filter.electro && state.filter.ukulele:
+                    return {
+                        ...state,
+                        four: true,
+                        six: true,
+                        seven: true,
+                        twelve: true,
+                        filterOffers: state.filterOffers
+                    }
+                case state.filter.acoustics && state.filter.electro:
+                    return {
+                        ...state,
+                        four: true,
+                        six: true,
+                        seven: true,
+                        twelve: true,
+                        filterOffers: state.filterOffers.filter(offer => offer.type === 'акустическая гитара' || offer.type === 'электрогитара')
+                    }
+                case state.filter.acoustics && state.filter.ukulele:
+                    return {
+                        ...state,
+                        four: true,
+                        six: true,
+                        seven: true,
+                        twelve: true,
+                        filterOffers: state.filterOffers.filter(offer => offer.type === 'акустическая гитара' || offer.type === 'укулеле')
+                    }
+                case state.filter.electro && state.filter.ukulele:
+                    return {
+                        ...state,
+                        four: true,
+                        six: true,
+                        seven: true,
+                        twelve: false,
+                        filterOffers: state.filterOffers.filter(offer => offer.type === 'электрогитара' || offer.type === 'укулеле')
+                    }
+                case state.filter.acoustics:
+                    return {
+                        ...state,
+                        four: false,
+                        six: true,
+                        seven: true,
+                        twelve: true,
+                        filterOffers: state.filterOffers.slice().filter(offer => offer.type === 'акустическая гитара')
+                    }
+                case state.filter.electro:
+                    return {
+                        ...state,
+                        four: true,
+                        six: true,
+                        seven: true,
+                        twelve: false,
+                        filterOffers: state.filterOffers.filter(offer => offer.type === 'электрогитара')
+                    }
+                case state.filter.ukulele:
+                    return {
+                        ...state,
+                        four: true,
+                        six: false,
+                        seven: false,
+                        twelve: false,
+                        filterOffers: state.filterOffers.filter(offer => offer.type === 'укулеле')
+                    }
+                default:
+                    return {
+                        ...state,
+                        four: true,
+                        six: true,
+                        seven: true,
+                        twelve: true,
+                    }
             }
         case ActionType.FILTER_STRINGS:
             let filterOffersString = []

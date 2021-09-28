@@ -30,7 +30,7 @@
 
 .selected__name {
     margin: 0;
-    font-family: 'Droid Sans bolt', 'Arial';
+    font-family: 'Droid Sans bolt', 'Arial', sans-serif;
     font-size: 16px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -40,7 +40,7 @@
 .selected__text-container {
     display: flex;
     flex-direction: column;
-    font-family: 'Droid Sans', 'Arial';
+    font-family: 'Droid Sans', 'Arial', sans-serif;
     font-size: 14px;
     letter-spacing: 1.3px;
     justify-content: space-between;
@@ -49,7 +49,7 @@
 }
 
 .selected__price {
-    font-family: 'Droid Sans', 'Arial';
+    font-family: 'Droid Sans', 'Arial', sans-serif;
     font-size: 20px;
     letter-spacing: 0.05em;
     margin-top: 74px;
@@ -81,14 +81,14 @@
     border-bottom: 1px solid #9F9E9E;
     box-sizing: border-box;
     padding-top: 6px;
-    font-family: 'Droid Sans', 'Arial';
+    font-family: 'Droid Sans', 'Arial', sans-serif;
     font-size: 16px;
     letter-spacing: 0.05em;
     color: #9F9E9E;
 }
 
 .selected__total {
-    font-family: 'Droid Sans bolt', 'Arial';
+    font-family: 'Droid Sans bolt', 'Arial', sans-serif;
     font-size: 20px;
     letter-spacing: 0.05em;
     margin-left: 82px;

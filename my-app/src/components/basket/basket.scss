@@ -6,13 +6,13 @@
 }
 
 .basket__title {
-    font-family: 'Droid Sans bolt', 'Arial';
+    font-family: 'Droid Sans bolt', 'Arial', sans-serif;
     font-size: 22px;
     margin: 0;
 }
 
 .basket__container {
-    font-family: 'Droid Sans', 'Arial';
+    font-family: 'Droid Sans', 'Arial', sans-serif;
     font-size: 16px;
     color: #474747;
     margin-left: 2px;
@@ -34,7 +34,7 @@
 }
 
 .basket__text-discount {
-    font-family: 'Droid Sans bolt', 'Arial';
+    font-family: 'Droid Sans bolt', 'Arial', sans-serif;
     font-size: 16px;
     letter-spacing: 0.9px;
     margin-top: 39px;
@@ -45,7 +45,7 @@
     margin-top: 8px;
     margin-left: 2px;
     display: block;
-    font-family: 'Droid Sans', 'Arial';
+    font-family: 'Droid Sans', 'Arial', sans-serif;
     font-size: 12px;
     letter-spacing: 0.8px;
 }
@@ -62,7 +62,7 @@
     border: 2px solid #DDDADA;
     box-sizing: border-box;
     border-radius: 2px;
-    font-family: 'Droid Sans', 'Arial';
+    font-family: 'Droid Sans', 'Arial', sans-serif;
     font-size: 16px;
     letter-spacing: 0.05em;
     width: 170px;
@@ -73,7 +73,7 @@
 .basket__discount-button {
     background: #C1C1C1;
     border-radius: 2px;
-    font-family: 'Droid Sans bolt', 'Arial';
+    font-family: 'Droid Sans bolt', 'Arial', sans-serif;
     font-size: 16px;
     letter-spacing: 0.05em;
     color: #FFFFFF;
@@ -96,7 +96,7 @@
 }
 
 .basket__registration-text {
-    font-family: 'Droid Sans bolt', 'Arial';
+    font-family: 'Droid Sans bolt', 'Arial', sans-serif;
     font-size: 20px;
     letter-spacing: 0.05em;
     margin-top: 36px;
@@ -110,7 +110,7 @@
     background: #E27F00;
     border-radius: 2px;
     border: none;
-    font-family: 'Droid Sans bolt', 'Arial';
+    font-family: 'Droid Sans bolt', 'Arial', sans-serif;
     font-size: 16px;
     letter-spacing: 1px;
     color: #FFFFFF;
@@ -132,7 +132,7 @@
 .basket__discount-error--active {
     position: absolute;
     display: block;
-    font-family: 'Droid Sans', 'Arial';
+    font-family: 'Droid Sans', 'Arial', sans-serif;
     font-size: 12px;
     letter-spacing: 0.05em;
     color: #000000;
