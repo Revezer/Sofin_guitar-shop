@@ -60,8 +60,8 @@ const Sorting = (props) => {
             <span className='sorting__title'>Сортировать:</span>
             <button className={setMoneyClass} onClick={handleSwichSortPriceClick}>по цене</button>
             <button className={setPopylarityClass} onClick={handleSwichPopularityClick}>по популярности</button>
-            <button className={setUpClass} onClick={handleSwichUpClick}></button>
-            <button className={setDownClass} onClick={handleSwichDownClick}></button>
+            <button className={setUpClass} aria-label='кнопка вверх' onClick={handleSwichUpClick}></button>
+            <button className={setDownClass} aria-label='кнопка вниз' onClick={handleSwichDownClick}></button>
         </div>
     )
 }

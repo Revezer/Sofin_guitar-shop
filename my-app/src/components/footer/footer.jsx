@@ -27,14 +27,14 @@ const Footer = () => {
             </ul>
             <ul className='footer__list'>
                 <li className='footer__list-conteiner-benefits'>
-                    <span className='footer__list-headline'>О нас</span>
+                    <li className='footer__list-headline'>О нас</li>
                     <ul className='footer__list-benefits footer__list-list'>
                         <li className='footer__list-item'>Магазин гитар, музыкальных инструментов и гитарная мастерская в Санкт-Петербурге.</li>
                         <li className='footer__list-item footer__list-item--margin'>Все инструменты проверены, отстроены и доведены до идеала!</li>
                     </ul>
                 </li>
                 <li className='footer__list-conteiner-range'>
-                    <span className='footer__list-headline'>Каталог</span>
+                    <li className='footer__list-headline'>Каталог</li>
                     <ul className='footer__list-range footer__list-list'>
                         <li className='footer__list-item footer__list-item--letter'>Акустические гитары</li>
                         <li className='footer__list-item footer__list-item--letter'>Классические гитары</li>
@@ -44,7 +44,7 @@ const Footer = () => {
                     </ul>
                 </li>
                 <li className='footer__list-conteiner-info'>
-                    <span className='footer__list-headline'>Информация</span>
+                    <li className='footer__list-headline'>Информация</li>
                     <ul className='footer__list-info footer__list-list'>
                         <li className='footer__list-item footer__list-item--letter'>Где купить?</li>
                         <li className='footer__list-item footer__list-item--letter'>Блог</li>
@@ -55,7 +55,7 @@ const Footer = () => {
                 </li>
             </ul>
             <ul className='footer__address'>
-                <span className='footer__address-headline'>Контакты</span>
+                <li className='footer__address-headline'>Контакты</li>
                 <li className='footer__address-item footer__address-item--height'>
                     <span>г. Санкт-Петербург, м. Невский проспект, ул. Казанская 6.</span>
                     <span className='footer__address-telephon'>8-812-500-50-50</span>

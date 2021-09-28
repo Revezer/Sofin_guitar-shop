@@ -185,8 +185,12 @@ const Filter = (props) => {
             <div className='filter__money-conteiner'>
                 <h3 className='filter__money-subtitle'>Цена, ₽</h3>
                 <div className='filter__input-conteiner'>
-                    <input className='filter__money-input filter__money-input--line' value={getNumberWithSpaces(filter.minPrice)} onChange={onChangeMinPrice}/>
-                    <input className='filter__money-input' value={getNumberWithSpaces(filter.maxPrice)} onChange={onChangeMaxPrice}/>
+                    <label>
+                        <input className='filter__money-input filter__money-input--line' value={getNumberWithSpaces(filter.minPrice)} onChange={onChangeMinPrice}/>
+                    </label>
+                    <label>
+                        <input className='filter__money-input' value={getNumberWithSpaces(filter.maxPrice)} onChange={onChangeMaxPrice}/>
+                    </label>
                 </div>
             </div>
             <div className='filter__type-conteiner'>
