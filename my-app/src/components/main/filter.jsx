@@ -3,6 +3,9 @@ import {connect} from 'react-redux'
 import {getFilterPrice, getFilterStrings, getFilterType, setFilter, setOffersFilter, setPage, setStrings } from '../../store/action';
 import PropTypes from 'prop-types'
 
+const MIN_PRISE = 1
+const MAX_PRISE = 35000
+
 const Filter = (props) => {
     const {offers, filter, setFilter, setPage, getFilterPrice, getFilterType, setStrings, strings, getFilterStrings, four, six, seven, twelve} = props
 
@@ -14,7 +17,13 @@ const Filter = (props) => {
     },[filter, offers, setPage, strings, getFilterStrings, getFilterType, getFilterPrice])
 
     const onChangeMinPrice = (event) => {
-        let number = Number(event.target.value.replace(/\s/g, ''))
+        let number = event.target.value.replace(/[A-Za-z -]/g, '')
+        if(number < MIN_PRISE) {
+            number = MIN_PRISE
+        }
+        if(number > MAX_PRISE) {
+            number = MAX_PRISE
+        }
         if(number > filter.maxPrice) {
             setFilter({
                 ...filter,
@@ -30,7 +39,13 @@ const Filter = (props) => {
     }
 
     const onChangeMaxPrice = (event) => {
-        let number = Number(event.target.value.replace(/\s/g, ''))
+        let number = event.target.value.replace(/[A-Za-z -]/g, '')
+        if(number < MIN_PRISE) {
+            number = MIN_PRISE
+        }
+        if(number > MAX_PRISE) {
+            number = MAX_PRISE
+        }
         if(number < filter.minPrice) {
             setFilter({
                 ...filter,
@@ -186,10 +201,10 @@ const Filter = (props) => {
                 <h3 className='filter__money-subtitle'>Цена, ₽</h3>
                 <div className='filter__input-conteiner'>
                     <label>
-                        <input className='filter__money-input filter__money-input--line' value={getNumberWithSpaces(filter.minPrice)} onChange={onChangeMinPrice}/>
+                        <input className='filter__money-input filter__money-input--line' minValue='0' maxValue='100000' value={getNumberWithSpaces(filter.minPrice)} onChange={onChangeMinPrice}/>
                     </label>
                     <label>
-                        <input className='filter__money-input' value={getNumberWithSpaces(filter.maxPrice)} onChange={onChangeMaxPrice}/>
+                        <input className='filter__money-input' minValue='0' maxValue='100000' value={getNumberWithSpaces(filter.maxPrice)} onChange={onChangeMaxPrice}/>
                     </label>
                 </div>
             </div>

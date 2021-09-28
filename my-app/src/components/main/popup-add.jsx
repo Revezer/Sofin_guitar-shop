@@ -5,6 +5,7 @@ import Ukulele from '../../img/ukulele-mini.png'
 import {connect} from 'react-redux'
 import { setOffers, setPopUpAdd, setPopUpSuccess } from '../../store/action'
 import PropTypes from 'prop-types'
+import FocusTrap from 'focus-trap-react'
 
 const PopUpAdd = (props) => {
     const {closePopUpAdd, openPopUpSuccess, offer, addOffers, addedOffers} = props
@@ -26,6 +27,7 @@ const PopUpAdd = (props) => {
         document.onclick = (event) => {
             if ( event.target.className === 'closePopup' ) {
                 closePopUpAdd(false)
+                document.body.classList.remove('openPopUp')
             };
         };
     }
@@ -55,21 +57,23 @@ const PopUpAdd = (props) => {
     }
 
     return(
-        <div className='main-popup'>
-            <h3 className='main-popup__title'>Добавить товар в корзину</h3>
-            <div className='main-popup__container'>
-                <img className='main-popup__img' src={getGuitagImg()} alt='фото гитары'></img>
-                <div className='main-popup__info-conteiner'>
-                    <h3 className='main-popup__name'>ГИТАРА {offer.name}</h3>
-                    <span className='main-popup__info'>Артикул: {offer.code}</span>
-                    <span className='main-popup__info main-popup__info--margin'>{offer.type}, {offer.strings} струнная </span>
-                    <h3 className='main-popup__price'>Цена: {getNumberWithSpaces(offer.price)} ₽</h3>
+        <FocusTrap>
+            <div className='main-popup'>
+                <h3 className='main-popup__title'>Добавить товар в корзину</h3>
+                <div className='main-popup__container'>
+                    <img className='main-popup__img' src={getGuitagImg()} alt='фото гитары'></img>
+                    <div className='main-popup__info-conteiner'>
+                        <h3 className='main-popup__name'>ГИТАРА {offer.name}</h3>
+                        <span className='main-popup__info'>Артикул: {offer.code}</span>
+                        <span className='main-popup__info main-popup__info--margin'>{offer.type}, {offer.strings} струнная </span>
+                        <h3 className='main-popup__price'>Цена: {getNumberWithSpaces(offer.price)} ₽</h3>
+                    </div>
+                    <button className='main-popup__button' onClick={handlePopUpSuccessOpenClick}>Добавить в корзину</button>
                 </div>
-                <button className='main-popup__button' onClick={handlePopUpSuccessOpenClick}>Добавить в корзину</button>
+                <button className='main-popup__close' onClick={handleClosePopupClick}></button>
+                {closePopUpAddHandler()}
             </div>
-            <button className='main-popup__close' onClick={handleClosePopupClick}></button>
-            {closePopUpAddHandler()}
-        </div>
+        </FocusTrap>
     )
 }
 

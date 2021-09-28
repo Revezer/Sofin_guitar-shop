@@ -118,6 +118,12 @@ export default function counter(state = initialState, action) {
                         six: true,
                         seven: true,
                         twelve: false,
+                        stringsActive: {
+                            four: state.stringsActive.four,
+                            six: state.stringsActive.six,
+                            seven: state.stringsActive.seven,
+                            twelve: false,
+                        },
                         filterOffers: state.filterOffers.filter(offer => offer.type === 'электрогитара')
                     }
                 case state.filter.ukulele:
@@ -127,6 +133,12 @@ export default function counter(state = initialState, action) {
                         six: false,
                         seven: false,
                         twelve: false,
+                        stringsActive: {
+                            four: state.stringsActive.four,
+                            six: false,
+                            seven: false,
+                            twelve: false,
+                        },
                         filterOffers: state.filterOffers.filter(offer => offer.type === 'укулеле')
                     }
                 default:
