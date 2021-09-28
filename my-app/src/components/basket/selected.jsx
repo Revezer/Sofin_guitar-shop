@@ -3,11 +3,11 @@ import Electro from '../../img/electro-mini.png'
 import Acoustic from '../../img/acoustics-mini.png'
 import Ukulele from '../../img/ukulele-mini.png'
 import { connect } from "react-redux";
-import { setOfferDelete, setPopUpDelete, setTotalPrise } from "../../store/action";
+import { setOfferDelete, setOffers, setPopUpDelete, setTotalPrise } from "../../store/action";
 import PropTypes from 'prop-types'
 
 const Selected = (props) => {
-    const {offer, setPrice, totalPrice, openPopUp, deleteOffer} = props
+    const {offer, setPrice, totalPrice, openPopUp, deleteOffer, addOffers, addedOffers} = props
 
     const getGuitagImg = () => {
         switch (offer.type) {
@@ -23,7 +23,13 @@ const Selected = (props) => {
     }
 
     const handlePlusButtonClick = () => {
-        offer.amount = offer.amount + 1
+        let offers = addedOffers.slice()
+        const foo = addedOffers.slice().filter(element => element.id = offer.id)
+        const doo = addedOffers.slice().filter(element => element.id !== offer.id)
+        offers = doo
+        foo[0].amount ++
+        offers.push(foo[0])
+        addOffers(offers)
     }
 
     const handleMinusButtonClick = () => {
@@ -31,7 +37,13 @@ const Selected = (props) => {
             handleOpenDeletePopUpClick()
         }
         if(offer.amount > 1) {
-            offer.amount = offer.amount - 1
+            let offers = addedOffers.slice()
+            const foo = addedOffers.slice().filter(element => element.id = offer.id)
+            const doo = addedOffers.slice().filter(element => element.id !== offer.id)
+            offers = doo
+            foo[0].amount --
+            offers.push(foo[0])
+            addOffers(offers)
         }
     }
 
@@ -95,7 +107,8 @@ Selected.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    totalPrice: state.filters.totalPrice
+    totalPrice: state.filters.totalPrice,
+    addedOffers: state.filters.addedOffers
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -107,6 +120,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     deleteOffer(offer) {
         dispatch(setOfferDelete(offer))
+    },
+    addOffers(offers) {
+        dispatch(setOffers(offers))
     }
 })
 

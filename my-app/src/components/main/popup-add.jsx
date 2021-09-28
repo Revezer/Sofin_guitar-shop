@@ -41,8 +41,6 @@ const PopUpAdd = (props) => {
         let offers = addedOffers.slice()
         const foo = addedOffers.slice().filter(element => element.id = offer.id)
         const doo = addedOffers.slice().filter(element => element.id !== offer.id)
-        console.log(offer)
-        console.log(foo)
         if(foo.length === 1) {
             foo[0].amount ++
             offers = doo
