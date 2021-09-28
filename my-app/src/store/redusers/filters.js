@@ -88,6 +88,12 @@ export default function counter(state = initialState, action) {
                         six: true,
                         seven: true,
                         twelve: false,
+                        stringsActive: {
+                            four: state.stringsActive.four,
+                            six: state.stringsActive.six,
+                            seven: state.stringsActive.seven,
+                            twelve: false,
+                        },
                         filterOffers: state.filterOffers.filter(offer => offer.type === 'электрогитара' || offer.type === 'укулеле')
                     }
                 case state.filter.acoustics:
@@ -97,6 +103,12 @@ export default function counter(state = initialState, action) {
                         six: true,
                         seven: true,
                         twelve: true,
+                        stringsActive: {
+                            four: false,
+                            six: state.stringsActive.six,
+                            seven: state.stringsActive.seven,
+                            twelve: state.stringsActive.twelve,
+                        },
                         filterOffers: state.filterOffers.slice().filter(offer => offer.type === 'акустическая гитара')
                     }
                 case state.filter.electro:

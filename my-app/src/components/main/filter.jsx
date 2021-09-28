@@ -108,7 +108,7 @@ const Filter = (props) => {
             return(
                 <label>
                     <input className='filter__input-amount' onClick={handleChangeFourClick} type='checkbox'/>
-                    <span tabindex="0" className={getClassTypeFour}>4</span>
+                    <span tabIndex="0" className={getClassTypeFour}>4</span>
                 </label>
             )
         } else {
@@ -126,7 +126,7 @@ const Filter = (props) => {
             return(
                 <label>
                     <input className='filter__input-amount' onClick={handleChangeSixClick} type='checkbox'/>
-                    <span tabindex="0" className={getClassTypeSix}>6</span>
+                    <span tabIndex="0" className={getClassTypeSix}>6</span>
                 </label>
             )
         } else {
@@ -144,7 +144,7 @@ const Filter = (props) => {
             return(
                 <label>
                     <input className='filter__input-amount' onClick={handleChangeSevenClick} type='checkbox'/>
-                    <span tabindex="0" className={getClassTypeSeven}>7</span>
+                    <span tabIndex="0" className={getClassTypeSeven}>7</span>
                 </label>
             )
         } else {
@@ -162,7 +162,7 @@ const Filter = (props) => {
             return(
                 <label>
                     <input className='filter__input-amount' onClick={handleChangeTwelveClick} type='checkbox'/>
-                    <span tabindex="0" className={getClassTypeTwelve}>12</span>
+                    <span tabIndex="0" className={getClassTypeTwelve}>12</span>
                 </label>
             )
         } else {
@@ -198,15 +198,15 @@ const Filter = (props) => {
                 <div className='filter__inputs-type'>
                     <label>
                         <input className='filter__input-type' onClick={handleChangeAcousticsClick} type='checkbox'/>
-                        <span tabindex="0" className={getClassTypeAcoustics}>Акустические гитары</span>
+                        <span tabIndex="0" className={getClassTypeAcoustics}>Акустические гитары</span>
                     </label>
                     <label>
                         <input className='filter__input-type' onClick={handleChangeElectroClick} type='checkbox'/>
-                        <span tabindex="0" className={getClassTypeElectro}>Электрогитары</span>
+                        <span tabIndex="0" className={getClassTypeElectro}>Электрогитары</span>
                     </label>
                     <label>
                         <input className='filter__input-type' onClick={handleChangeUkuleleClick} type='checkbox'/>
-                        <span tabindex="0" className={getClassTypeUkulele}>Укулеле</span>
+                        <span tabIndex="0" className={getClassTypeUkulele}>Укулеле</span>
                     </label>
                 </div>
             </div>
