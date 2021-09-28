@@ -8,7 +8,7 @@
 }
 
 .header {
-    height: 110px;
+    min-height: 110px;
     background: rgba(30, 9, 6, 0.15);
     display: flex;
     position: relative;
@@ -37,6 +37,7 @@
     margin-top: 45px;
     width: 470px;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .list-link__item {
@@ -82,4 +83,20 @@
 
 .list-icon__item:active {
     opacity: 0.5;
+}
+
+.list-link__catalog {
+    width: 57px;
+}
+
+.list-link__where {
+    width: 87px;
+}
+
+.list-link__info {
+    width: 91px;
+}
+
+.list-link__service {
+    width: 115px;
 }

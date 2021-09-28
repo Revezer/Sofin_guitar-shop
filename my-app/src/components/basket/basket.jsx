@@ -6,6 +6,7 @@ import SelectedComponent from './selected';
 import {connect} from 'react-redux'
 import {setTotalPrise} from '../../store/action';
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 const DISCOUNT = {
     MIN: 0.1,
@@ -80,7 +81,9 @@ const Basket = (props) => {
                 <h1 className='basket__title'>Корзина</h1>
                 <div className='basket__container'>
                     <span className='basket__text basket__text--arrow'>Главная</span>
-                    <span className='basket__text basket__text--arrow'>Каталог</span>
+                    <Link className='basket__text-link' to='/'>
+                        <span className='basket__text basket__text--arrow'>Каталог</span>
+                    </Link>
                     <span className='basket__text'>Оформляем</span>
                 </div>
                 <div className='basket__selecteds'>

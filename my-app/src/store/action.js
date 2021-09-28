@@ -18,7 +18,7 @@ export const ActionType = {
     FILTER_PRICE: 'main/catalog-filter-price',
     FILTER_TYPE: 'main/catalog-filter-type',
     FILTER_STRINGS: 'main/catalog-filter-strings',
-    STRINGS: 'main/catalog-strings'
+    STRINGS: 'main/catalog-strings',
   };
 
   

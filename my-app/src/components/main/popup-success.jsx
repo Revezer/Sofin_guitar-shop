@@ -25,7 +25,9 @@ const PopUpSuccess = (props) => {
         <div className='popup-success'>
             <h3 className='popup-success__title'>Товар успешно добавлен в корзину</h3>
             <div className='popup-success__container'>
-                <Link className='popup-success__link' to='/basket'onClick={handleClosePopupClick}>Перейти в корзину</Link>
+                <Link className='popup-success__link' to='/basket'onClick={handleClosePopupClick}>
+                    <span className='popup-success__text-link'>Перейти в корзину</span>   
+                </Link>
                 <button className='popup-success__button' onClick={handleClosePopupClick}>Продолжить покупки</button>
             </div>
             <button className='popup-success__close' onClick={handleClosePopupClick}></button>

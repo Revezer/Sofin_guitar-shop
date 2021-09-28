@@ -60,9 +60,9 @@ const PopUpAdd = (props) => {
             <div className='main-popup__container'>
                 <img className='main-popup__img' src={getGuitagImg()} alt='фото гитары'></img>
                 <div className='main-popup__info-conteiner'>
-                    <h3 className='main-popup__name'>{offer.name}</h3>
+                    <h3 className='main-popup__name'>ГИТАРА {offer.name}</h3>
                     <span className='main-popup__info'>Артикул: {offer.code}</span>
-                    <span className='main-popup__info'>{offer.type}, {offer.strings} струнная </span>
+                    <span className='main-popup__info main-popup__info--margin'>{offer.type}, {offer.strings} струнная </span>
                     <h3 className='main-popup__price'>Цена: {getNumberWithSpaces(offer.price)} ₽</h3>
                 </div>
                 <button className='main-popup__button' onClick={handlePopUpSuccessOpenClick}>Добавить в корзину</button>

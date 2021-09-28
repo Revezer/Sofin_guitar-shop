@@ -26,18 +26,20 @@ const Header = (props) => {
 
     return(
         <header className='header'>
+            <a href='/'>
             <img className='header__logo' src={Logo} alt='логотип магазина'></img>
+            </a>
             <ul className='header__list-link list-link'>
-                <li>
+                <li className='list-link__catalog'>
                     <Link className='list-link__item' to='/'>Каталог</Link>
                 </li>
-                <li>
+                <li className='list-link__where'>
                     <a className='list-link__item' href='/'>Где купить?</a>
                 </li>
-                <li>
+                <li className='list-link__info'>
                     <a className='list-link__item' href='/'>О компании</a>
                 </li>
-                <li>
+                <li className='list-link__service'>
                     <a className='list-link__item' href='/'>Cервис-центры</a>
                 </li>
             </ul>

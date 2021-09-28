@@ -14,7 +14,7 @@
 .main-popup__title {
     font-family: 'Droid Sans bolt', 'Arial', sans-serif;
     font-size: 18px;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.7px;
     color: #474747;
     margin-top: 27px;
     margin-left: 50px;
@@ -41,20 +41,27 @@
 .main-popup__name {
     font-family: 'Droid Sans bolt', 'Arial', sans-serif;
     font-size: 16px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.7px;
     text-transform: uppercase;
+    margin-bottom: 11px;
+    margin-top: 18px;
 }
 
 .main-popup__info {
     font-family: 'Droid Sans', 'Arial', sans-serif;
     font-size: 14px;
-    letter-spacing: 0.05em;
+    letter-spacing: 1px;
+}
+
+.main-popup__info--margin {
+    margin-top: 5px;
 }
 
 .main-popup__price {
     font-family: 'Droid Sans bolt', 'Arial', sans-serif;
     font-size: 20px;
     letter-spacing: 0.05em;
+    margin-top: 16px;
 
 }
 
