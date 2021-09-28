@@ -38,9 +38,20 @@ const PopUpAdd = (props) => {
     }
 
     const handlePopUpSuccessOpenClick = () => {
-        const offers = addedOffers.slice()
-        offers.push(offer)
-        addOffers(offers)
+        let offers = addedOffers.slice()
+        const foo = addedOffers.slice().filter(element => element.id = offer.id)
+        const doo = addedOffers.slice().filter(element => element.id !== offer.id)
+        console.log(offer)
+        console.log(foo)
+        if(foo.length === 1) {
+            foo[0].amount ++
+            offers = doo
+            offers.push(foo[0])
+            addOffers(offers)
+        } else {
+            offers.push(offer)
+            addOffers(offers)
+        }
         closePopUpAdd(false)
         openPopUpSuccess(true)
         window.onkeydown = (evt) => {

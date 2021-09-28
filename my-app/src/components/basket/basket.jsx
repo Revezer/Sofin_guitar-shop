@@ -24,7 +24,7 @@ const Basket = (props) => {
             setPrice(0)
         }
         offers.forEach(offer => {
-            price = price + offer.price
+            price = price + offer.price * offer.amount
             setPrice(price)
         })
     },[offers, setPrice])

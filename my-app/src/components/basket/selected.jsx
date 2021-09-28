@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Electro from '../../img/electro-mini.png'
 import Acoustic from '../../img/acoustics-mini.png'
 import Ukulele from '../../img/ukulele-mini.png'
@@ -22,20 +22,16 @@ const Selected = (props) => {
         }
     }
 
-    const [quantity, setQuantity] = useState(1)
-
     const handlePlusButtonClick = () => {
-        setQuantity(quantity + 1)
-        setPrice(totalPrice + offer.price * quantity)
+        offer.amount = offer.amount + 1
     }
 
     const handleMinusButtonClick = () => {
-        if(quantity === 1) {
+        if(offer.amount === 1) {
             handleOpenDeletePopUpClick()
         }
-        if(quantity > 1) {
-            setQuantity(quantity - 1)
-            setPrice(totalPrice - offer.price)
+        if(offer.amount > 1) {
+            offer.amount = offer.amount - 1
         }
     }
 
@@ -74,10 +70,10 @@ const Selected = (props) => {
             <span className='selected__price'>{getNumberWithSpaces(offer.price)} ₽</span>
             <div className='selected__buttons'>
                 <button className='selected__button' onClick={handleMinusButtonClick}>-</button>
-                <span className='selected__number'>{quantity}</span>
+                <span className='selected__number'>{offer.amount}</span>
                 <button className='selected__button' onClick={handlePlusButtonClick}>+</button>
             </div>
-            <span className='selected__total'>{getNumberWithSpaces(offer.price * quantity)} ₽</span>
+            <span className='selected__total'>{getNumberWithSpaces(offer.price * offer.amount)} ₽</span>
         </div>
     )
 }
