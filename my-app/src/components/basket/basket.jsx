@@ -105,7 +105,7 @@ const Basket = (props) => {
                     </div>
                     <div className='basket__registration'>
                         <span className='basket__registration-text'>Всего: {getNumberWithSpaces(setdiscount())} ₽ </span>
-                        <button className='basket__registration-button'>Оформить заказ</button>
+                        <Link to='#' className='basket__registration-button'>Оформить заказ</Link>
                     </div>
                 </div>
             </div>

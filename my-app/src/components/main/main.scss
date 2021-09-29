@@ -3,6 +3,10 @@
     margin-bottom: 133px;
 }
 
+button {
+    cursor: pointer;
+}
+
 .main__conteiner {
     display: grid;
     grid-template-columns: 208px auto;

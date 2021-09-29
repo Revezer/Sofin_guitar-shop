@@ -115,6 +115,11 @@
     letter-spacing: 1px;
     color: #FFFFFF;
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    padding-top: 10px;
+    height: 26px;
 }
 
 .basket__registration-button:hover, .basket__registration-button:focus {

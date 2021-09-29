@@ -14,10 +14,6 @@
     color: black;
 }
 
-.sorting__button-money:hover, .sorting__button-money:focus, .orting__button-popularity:focus, .orting__button-popularity:hover, .sorting__button-up:hover, .sorting__button-up:focus, .sorting__button-down:focus, .sorting__button-down:hover {
-    color: #474747;
-}
-
 .sorting__button-down:active, .sorting__button-money:active, .sorting__button-up:active, .sorting__button-popularity:active {
     color: rgba(71, 71, 71, 0.5);
 }

@@ -46,9 +46,9 @@
 .header__list-link {
     display: flex;
     list-style-type: none;
-    margin-left: 75px;
+    margin-left: 35px;
     margin-top: 45px;
-    width: 470px;
+    width: 510px;
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -101,16 +101,20 @@
 
 .list-link__catalog {
     width: 57px;
+    margin-left: 40px;
 }
 
 .list-link__where {
     width: 87px;
+    margin-left: 40px;
 }
 
 .list-link__info {
     width: 91px;
+    margin-left: 40px;
 }
 
 .list-link__service {
     width: 115px;
+    margin-left: 40px;
 }

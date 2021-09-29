@@ -10,6 +10,8 @@ import FocusTrap from 'focus-trap-react'
 const PopUpAdd = (props) => {
     const {closePopUpAdd, openPopUpSuccess, offer, addOffers, addedOffers} = props
 
+    let offers = addedOffers.slice()
+
     const getGuitagImg = () => {
         switch (offer.type) {
             case 'aкустические гитары':
@@ -38,15 +40,15 @@ const PopUpAdd = (props) => {
     }
 
     const handlePopUpSuccessOpenClick = () => {
-        let offers = addedOffers.slice()
-        const foo = addedOffers.slice().filter(element => element.id = offer.id)
-        const doo = addedOffers.slice().filter(element => element.id !== offer.id)
+        const foo = offers.slice().filter(element => element.id === offer.id)
+        const doo = offers.slice().filter(element => element.id !== offer.id)
         if(foo.length === 1) {
             foo[0].amount ++
             offers = doo
             offers.push(foo[0])
             addOffers(offers)
-        } else {
+        }
+        if(foo.length === 0) {
             offers.push(offer)
             addOffers(offers)
         }

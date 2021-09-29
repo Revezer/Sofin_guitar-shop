@@ -17,7 +17,7 @@ const Filter = (props) => {
     },[filter, offers, setPage, strings, getFilterStrings, getFilterType, getFilterPrice])
 
     const onChangeMinPrice = (event) => {
-        let number = event.target.value.replace(/[A-Za-z -]/g, '')
+        let number = event.target.value.replace(/[A-Za-zА-Яа-я -]/g, '')
         if(number < MIN_PRISE) {
             number = MIN_PRISE
         }
@@ -39,7 +39,7 @@ const Filter = (props) => {
     }
 
     const onChangeMaxPrice = (event) => {
-        let number = event.target.value.replace(/[A-Za-z -]/g, '')
+        let number = event.target.value.replace(/[A-Za-zА-Яа-я -]/g, '')
         if(number < MIN_PRISE) {
             number = MIN_PRISE
         }
@@ -121,14 +121,14 @@ const Filter = (props) => {
     const getInputFour = () => {
         if(four) {
             return(
-                <label>
+                <label  className='filter__input-label'>
                     <input className='filter__input-amount' onClick={handleChangeFourClick} type='checkbox'/>
-                    <span tabIndex="0" className={getClassTypeFour}>4</span>
+                    <span className={getClassTypeFour}>4</span>
                 </label>
             )
         } else {
             return(
-                <label>
+                <label  className='filter__input-label'>
                     <input className='filter__input-amount'/>
                     <span className='filter__amount-text filter__amount-text--disabled'>4</span>
                 </label>
@@ -139,14 +139,14 @@ const Filter = (props) => {
     const getInputSix = () => {
         if(six) {
             return(
-                <label>
+                <label  className='filter__input-label'>
                     <input className='filter__input-amount' onClick={handleChangeSixClick} type='checkbox'/>
-                    <span tabIndex="0" className={getClassTypeSix}>6</span>
+                    <span className={getClassTypeSix}>6</span>
                 </label>
             )
         } else {
             return(
-                <label>
+                <label  className='filter__input-label'>
                     <input className='filter__input-amount'/>
                     <span className='filter__amount-text filter__amount-text--disabled'>6</span>
                 </label>
@@ -157,14 +157,14 @@ const Filter = (props) => {
     const getInputSeven = () => {
         if(seven) {
             return(
-                <label>
+                <label  className='filter__input-label'>
                     <input className='filter__input-amount' onClick={handleChangeSevenClick} type='checkbox'/>
-                    <span tabIndex="0" className={getClassTypeSeven}>7</span>
+                    <span className={getClassTypeSeven}>7</span>
                 </label>
             )
         } else {
             return(
-                <label>
+                <label  className='filter__input-label'>
                     <input className='filter__input-amount'/>
                     <span className='filter__amount-text filter__amount-text--disabled'>7</span>
                 </label>
@@ -175,14 +175,14 @@ const Filter = (props) => {
     const getInputTwelve = () => {
         if(twelve) {
             return(
-                <label>
+                <label  className='filter__input-label'>
                     <input className='filter__input-amount' onClick={handleChangeTwelveClick} type='checkbox'/>
-                    <span tabIndex="0" className={getClassTypeTwelve}>12</span>
+                    <span className={getClassTypeTwelve}>12</span>
                 </label>
             )
         } else {
             return(
-                <label>
+                <label  className='filter__input-label'>
                     <input className='filter__input-amount'/>
                     <span className='filter__amount-text filter__amount-text--disabled'>12</span>
                 </label>
@@ -211,17 +211,17 @@ const Filter = (props) => {
             <div className='filter__type-conteiner'>
                 <h3 className='filter__type-subtitle'>Тип гитар</h3>
                 <div className='filter__inputs-type'>
-                    <label>
+                    <label className='filter__input-label'>
                         <input className='filter__input-type' onClick={handleChangeAcousticsClick} type='checkbox'/>
-                        <span tabIndex="0" className={getClassTypeAcoustics}>Акустические гитары</span>
+                        <span className={getClassTypeAcoustics}>Акустические гитары</span>
                     </label>
-                    <label>
+                    <label  className='filter__input-label'>
                         <input className='filter__input-type' onClick={handleChangeElectroClick} type='checkbox'/>
-                        <span tabIndex="0" className={getClassTypeElectro}>Электрогитары</span>
+                        <span className={getClassTypeElectro}>Электрогитары</span>
                     </label>
-                    <label>
+                    <label  className='filter__input-label'>
                         <input className='filter__input-type' onClick={handleChangeUkuleleClick} type='checkbox'/>
-                        <span tabIndex="0" className={getClassTypeUkulele}>Укулеле</span>
+                        <span className={getClassTypeUkulele}>Укулеле</span>
                     </label>
                 </div>
             </div>

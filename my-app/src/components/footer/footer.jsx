@@ -3,27 +3,28 @@ import Logo from '../../img/logo-footer.svg'
 import Facebook from '../../img/facebook.svg'
 import Instagram from '../../img/instagram.svg'
 import Twitter from '../../img/twitter.svg'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return(
         <footer className='footer'>
             <div className='footer__container-logo'>
-                <a href='#top'>
+                <Link to='#'>
                     <img className='footer__logo' src={Logo} alt='логотип'></img>
-                </a>
+                </Link>
                 <ul className='footer__social social'>
                     <li>
-                        <a href='#top'>
+                        <a href='#'>
                             <img src={Facebook} alt='иконка facebook'/>
                         </a>
                     </li>
                     <li className='footer__social-instagram'>
-                        <a href='#top'>
+                        <a href='#'>
                             <img src={Instagram} alt='иконка instagram'/>
                         </a>
                     </li>
                     <li className='footer__social-twitter'>
-                        <a href='#top'>
+                        <a href='#'>
                             <img src={Twitter} alt='иконка twitter'/>
                         </a>
                     </li>
@@ -40,21 +41,21 @@ const Footer = () => {
                 <li className='footer__list-conteiner-range'>
                     <li className='footer__list-headline'><span>Каталог</span></li>
                     <ul className='footer__list-range footer__list-list'>
-                        <li className='footer__list-item footer__list-item-margin footer__list-item--letter'><a className='footer__list-link' href='#top'>Акустические гитары</a></li>
-                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#top'>Классические гитары</a></li>
-                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#top'>Электрогитары</a></li>
-                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#top'>Бас-гитары</a></li>
-                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#top'>Укулеле</a></li>
+                        <li className='footer__list-item footer__list-item-margin footer__list-item--letter'><a className='footer__list-link' href='#'>Акустические гитары</a></li>
+                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#'>Классические гитары</a></li>
+                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#'>Электрогитары</a></li>
+                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#'>Бас-гитары</a></li>
+                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#'>Укулеле</a></li>
                     </ul>
                 </li>
                 <li className='footer__list-conteiner-info'>
                     <li className='footer__list-headline'><span>Информация</span></li>
                     <ul className='footer__list-info footer__list-list'>
-                        <li className='footer__list-item footer__list-item-margin footer__list-item--letter'><a className='footer__list-link' href='#top'>Где купить?</a></li>
-                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#top'>Блог</a></li>
-                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#top'>Вопрос - ответ</a></li>
-                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#top'>Возврат</a></li>
-                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#top'>Сервис-центры</a></li>
+                        <li className='footer__list-item footer__list-item-margin footer__list-item--letter'><a className='footer__list-link' href='#'>Где купить?</a></li>
+                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#'>Блог</a></li>
+                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#'>Вопрос - ответ</a></li>
+                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#'>Возврат</a></li>
+                        <li className='footer__list-item footer__list-item--letter'><a className='footer__list-link' href='#'>Сервис-центры</a></li>
                     </ul>
                 </li>
             </ul>

@@ -26,31 +26,31 @@ const Header = (props) => {
 
     return(
         <header className='header'>
-            <a href='#top'>
+            <Link to='#'>
             <img className='header__logo' src={Logo} alt='логотип магазина'></img>
-            </a>
+            </Link>
             <ul className='header__list-link list-link'>
                 <li className='list-link__catalog'>
                     <Link className='list-link__item' to='/'>Каталог</Link>
                 </li>
                 <li className='list-link__where'>
-                    <a className='list-link__item' href='#top'>Где купить?</a>
+                    <a className='list-link__item' href='#'>Где купить?</a>
                 </li>
                 <li className='list-link__info'>
-                    <a className='list-link__item' href='#top'>О компании</a>
+                    <a className='list-link__item' href='#'>О компании</a>
                 </li>
                 <li className='list-link__service'>
-                    <a className='list-link__item' href='#top'>Cервис-центры</a>
+                    <a className='list-link__item' href='#'>Cервис-центры</a>
                 </li>
             </ul>
             <ul className='header__list-icon list-icon'>
                 <li>
-                    <a className='list-icon__item' href='#top'>
+                    <a className='list-icon__item' href='#'>
                         <img src={IconMap} alt='иконка карты'></img>
                     </a>
                 </li>
                 <li>
-                    <a className='list-icon__item' href='#top'>
+                    <a className='list-icon__item' href='#'>
                         <img src={IconSearch} alt='иконка поиска'></img>
                     </a>
                 </li>

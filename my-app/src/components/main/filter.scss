@@ -51,7 +51,9 @@
 }
 
 .filter__input-type {
-    display: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .filter__type-text {
@@ -108,7 +110,9 @@
 }
 
 .filter__input-amount {
-    display: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 .filter__amount-text {
@@ -176,4 +180,17 @@
     width: 17px;
     height: 1px;
     background-repeat: no-repeat;
+}
+
+.filter__input-label {
+    position: relative;
+}
+
+.filter__input-amount, .filter__input-type {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    border-radius: 2px;
+    left: -41px;
+    top: -2px;
 }

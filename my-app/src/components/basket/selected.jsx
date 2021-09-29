@@ -24,7 +24,7 @@ const Selected = (props) => {
 
     const handlePlusButtonClick = () => {
         let offers = addedOffers.slice()
-        const foo = addedOffers.slice().filter(element => element.id = offer.id)
+        const foo = addedOffers.slice().filter(element => element.id === offer.id)
         const doo = addedOffers.slice().filter(element => element.id !== offer.id)
         offers = doo
         foo[0].amount ++
@@ -34,14 +34,11 @@ const Selected = (props) => {
 
     const handleInputChange = (event) => {
         let number = event.target.value.replace(/[A-Za-z -]/g, '')
-        if(number < 1) {
-            number = 1
-        }
         if(number > 99) {
             number = 99
         }
         let offers = addedOffers.slice()
-        const foo = addedOffers.slice().filter(element => element.id = offer.id)
+        const foo = addedOffers.slice().filter(element => element.id === offer.id)
         const doo = addedOffers.slice().filter(element => element.id !== offer.id)
         offers = doo
         foo[0].amount = number
@@ -55,8 +52,8 @@ const Selected = (props) => {
         }
         if(offer.amount > 1) {
             let offers = addedOffers.slice()
-            const foo = addedOffers.slice().filter(element => element.id = offer.id)
-            const doo = addedOffers.slice().filter(element => element.id !== offer.id)
+            const foo = offers.slice().filter(element => element.id === offer.id)
+            const doo = offers.slice().filter(element => element.id !== offer.id)
             offers = doo
             foo[0].amount --
             offers.push(foo[0])
