@@ -79,8 +79,6 @@ const Catalog = (props) => {
     const getPopupAdd = popupAdd ? <PopUpAdd/> : ''
 
     const getPopupSuccess = popupSuccess ? <PopUpSuccess/> : ''
-
-    const getPopup = popupAdd || popupSuccess ? <div className='closePopup'></div> : ''
     
     return(
         <>
@@ -105,7 +103,6 @@ const Catalog = (props) => {
                     {getButtonNext}
             </div>
         </main>
-        {getPopup}
         {getPopupAdd}
         {getPopupSuccess}
         </>

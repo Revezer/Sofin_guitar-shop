@@ -67,20 +67,22 @@ const PopUpAdd = (props) => {
 
     return(
         <FocusTrap>
-            <div className='main-popup'>
-                <h3 className='main-popup__title'>Добавить товар в корзину</h3>
-                <div className='main-popup__container'>
-                    <img className='main-popup__img' src={getGuitagImg()} alt='фото гитары'></img>
-                    <div className='main-popup__info-conteiner'>
-                        <h3 className='main-popup__name'>ГИТАРА {offer.name}</h3>
-                        <span className='main-popup__info'>Артикул: {offer.code}</span>
-                        <span className='main-popup__info main-popup__info--margin'>{offer.type}, {offer.strings} струнная </span>
-                        <h3 className='main-popup__price'>Цена: {getNumberWithSpaces(offer.price)} ₽</h3>
+            <div className='closePopup'>
+                <div className='main-popup'>
+                    <h3 className='main-popup__title'>Добавить товар в корзину</h3>
+                    <div className='main-popup__container'>
+                        <img className='main-popup__img' src={getGuitagImg()} alt='фото гитары'></img>
+                        <div className='main-popup__info-conteiner'>
+                            <h3 className='main-popup__name'>ГИТАРА {offer.name}</h3>
+                            <span className='main-popup__info'>Артикул: {offer.code}</span>
+                            <span className='main-popup__info main-popup__info--margin'>{offer.type}, {offer.strings} струнная </span>
+                            <h3 className='main-popup__price'>Цена: {getNumberWithSpaces(offer.price)} ₽</h3>
+                        </div>
+                        <button className='main-popup__button' onClick={handlePopUpSuccessOpenClick}>Добавить в корзину</button>
                     </div>
-                    <button className='main-popup__button' onClick={handlePopUpSuccessOpenClick}>Добавить в корзину</button>
+                    <button className='main-popup__close' onClick={handleClosePopupClick}></button>
+                    {closePopUpAddHandler()}
                 </div>
-                <button className='main-popup__close' onClick={handleClosePopupClick}></button>
-                {closePopUpAddHandler()}
             </div>
         </FocusTrap>
     )

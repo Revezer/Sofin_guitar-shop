@@ -33,8 +33,6 @@ const Basket = (props) => {
 
     const openPopUp = popup ? <PopUpDelete/> : ''
 
-    const getPopup = popup ? <div className='closePopup'></div> : ''
-
     const [promoCode, setPromoCode] = useState('')
     const [error, setError] = useState(false)
 
@@ -111,7 +109,6 @@ const Basket = (props) => {
                     </div>
                 </div>
             </div>
-            {getPopup}
             {openPopUp}
             <FooterComponent/>
         </>
