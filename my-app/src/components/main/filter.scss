@@ -187,9 +187,14 @@
 }
 
 .filter__input-amount, .filter__input-type {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     width: 24px;
     height: 24px;
     position: absolute;
     left: -41px;
     top: -2px;
+    border: none;
+    box-sizing: border-box;
 }
