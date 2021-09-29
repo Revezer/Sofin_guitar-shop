@@ -17,6 +17,10 @@ const Sorting = (props) => {
                 setSortUp(true)
             }
         }
+        if(sortMoney) {
+            setSortUp(false)
+            setSortDown(false)
+        }
         setSortPrice(!sortMoney)
     }
 
@@ -26,6 +30,10 @@ const Sorting = (props) => {
             if(sortUp === false && sortDown === false) {
                 setSortUp(true)
             }
+        }
+        if(sortPopularity) {
+            setSortUp(false)
+            setSortDown(false)
         }
         setSortPopularity(!sortPopularity)
     }
@@ -37,6 +45,10 @@ const Sorting = (props) => {
                 setSortPrice(true)
             }
         }
+        if(sortUp) {
+            setSortPrice(false)
+            setSortPopularity(false)
+        }
         setSortUp(!sortUp)
     }
 
@@ -46,6 +58,10 @@ const Sorting = (props) => {
             if(sortMoney === false && sortPopularity === false) {
                 setSortPrice(true)
             }
+        }
+        if(sortDown) {
+            setSortPrice(false)
+            setSortPopularity(false)
         }
         setSortDown(!sortDown)
     }

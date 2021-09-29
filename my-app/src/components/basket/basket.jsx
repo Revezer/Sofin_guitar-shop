@@ -74,6 +74,10 @@ const Basket = (props) => {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 
+    const handleInputChange = (event) => {
+        event.target.value = event.target.value.replace(/[ ]/g, '')
+    }
+
     return(
         <>
             <HeaderComponent/>
@@ -96,7 +100,7 @@ const Basket = (props) => {
                         <div className='basket__discount-container'>
                             <span className={textError}>Промокод не действителен</span>
                             <label>
-                                <input className='basket__discount-input'></input>
+                                <input className='basket__discount-input' onChange={handleInputChange}></input>
                             </label>
                             <button className='basket__discount-button' onClick={handlePromoCodeClick}>Применить купон</button>
                         </div>

@@ -7,7 +7,7 @@ import { setOfferDelete, setOffers, setPopUpDelete, setTotalPrise } from "../../
 import PropTypes from 'prop-types'
 
 const Selected = (props) => {
-    const {offer, setPrice, totalPrice, openPopUp, deleteOffer, addOffers, addedOffers} = props
+    const {offer, openPopUp, deleteOffer, addOffers, addedOffers} = props
 
     const getGuitagImg = () => {
         switch (offer.type) {
@@ -28,6 +28,23 @@ const Selected = (props) => {
         const doo = addedOffers.slice().filter(element => element.id !== offer.id)
         offers = doo
         foo[0].amount ++
+        offers.push(foo[0])
+        addOffers(offers)
+    }
+
+    const handleInputChange = (event) => {
+        let number = event.target.value.replace(/[A-Za-z -]/g, '')
+        if(number < 1) {
+            number = 1
+        }
+        if(number > 99) {
+            number = 99
+        }
+        let offers = addedOffers.slice()
+        const foo = addedOffers.slice().filter(element => element.id = offer.id)
+        const doo = addedOffers.slice().filter(element => element.id !== offer.id)
+        offers = doo
+        foo[0].amount = number
         offers.push(foo[0])
         addOffers(offers)
     }
@@ -82,7 +99,7 @@ const Selected = (props) => {
             <span className='selected__price'>{getNumberWithSpaces(offer.price)} ₽</span>
             <div className='selected__buttons'>
                 <button className='selected__button' onClick={handleMinusButtonClick}>-</button>
-                <span className='selected__number'>{offer.amount}</span>
+                <input className='selected__number' value={offer.amount} onChange={handleInputChange}></input>
                 <button className='selected__button' onClick={handlePlusButtonClick}>+</button>
             </div>
             <span className='selected__total'>{getNumberWithSpaces(offer.price * offer.amount)} ₽</span>
