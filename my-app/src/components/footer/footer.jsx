@@ -7,26 +7,28 @@ import Twitter from '../../img/twitter.svg'
 const Footer = () => {
     return(
         <footer className='footer'>
-            <a href='#top'>
-                <img className='footer__logo' src={Logo} alt='логотип'></img>
-            </a>
-            <ul className='footer__social social'>
-                <li>
-                    <a href='#top'>
-                        <img src={Facebook} alt='иконка facebook'/>
-                    </a>
-                </li>
-                <li className='footer__social-instagram'>
-                    <a href='#top'>
-                        <img src={Instagram} alt='иконка instagram'/>
-                    </a>
-                </li>
-                <li className='footer__social-twitter'>
-                    <a href='#top'>
-                        <img src={Twitter} alt='иконка twitter'/>
-                    </a>
-                </li>
-            </ul>
+            <div className='footer__container-logo'>
+                <a href='#top'>
+                    <img className='footer__logo' src={Logo} alt='логотип'></img>
+                </a>
+                <ul className='footer__social social'>
+                    <li>
+                        <a href='#top'>
+                            <img src={Facebook} alt='иконка facebook'/>
+                        </a>
+                    </li>
+                    <li className='footer__social-instagram'>
+                        <a href='#top'>
+                            <img src={Instagram} alt='иконка instagram'/>
+                        </a>
+                    </li>
+                    <li className='footer__social-twitter'>
+                        <a href='#top'>
+                            <img src={Twitter} alt='иконка twitter'/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <ul className='footer__list'>
                 <li className='footer__list-conteiner-benefits'>
                     <li className='footer__list-headline'><span>О нас</span></li>

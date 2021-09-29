@@ -5,7 +5,7 @@
 
 .main__conteiner {
     display: grid;
-    grid-template-columns: 208px 700px;
+    grid-template-columns: 208px auto;
     grid-template-areas: 
         'filters sorting'
         'filters catalog';
@@ -21,14 +21,17 @@
 
 .main__sorting {
     grid-area: sorting;
+    display: flex;
+    justify-content: space-between;
 }
 
 .main__catalog {
     grid-area: catalog;
     display: grid;
-    grid-template-columns: 220px 220px 220px;
+    grid-template-columns: auto auto auto;
     grid-column-gap: 20px;
     grid-row-gap: 30px;
+    margin-right: 41px;
 }
 
 .main__title {

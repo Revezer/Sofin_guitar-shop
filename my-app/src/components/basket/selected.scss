@@ -97,3 +97,9 @@
     margin-top: 74px;
     white-space: nowrap;
 }
+
+@media (min-width: 1021px) {
+    .selected {
+        justify-content: space-evenly;
+    }
+}
