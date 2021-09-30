@@ -7,14 +7,14 @@ const MIN_PRISE = 1
 const MAX_PRISE = 35000
 
 const Filter = (props) => {
-    const {offers, filter, setFilter, setPage, getFilterPrice, getFilterType, setStrings, strings, getFilterStrings, four, six, seven, twelve, fourActive, sixActive, sevenActive, twelveActive, setStringsFour, setStringsSix, setStringsSeven, setStringsTwelve} = props
+    const {offers, filter, setFilter, setPage, getFilterPrice, getFilterType, getFilterStrings, four, six, seven, twelve, fourActive, sixActive, sevenActive, twelveActive, setStringsFour, setStringsSix, setStringsSeven, setStringsTwelve} = props
 
     useEffect(() => {
         setPage(1)
         getFilterPrice()
         getFilterType()
         getFilterStrings()
-    },[filter, offers, setPage, getFilterStrings, getFilterType, getFilterPrice])
+    },[filter, offers, setPage, getFilterStrings, getFilterType, getFilterPrice, fourActive, sixActive, sevenActive, twelveActive])
 
     const onChangeMinPrice = (event) => {
         let number = event.target.value.replace(/[A-Za-zА-Яа-я -]/g, '')
