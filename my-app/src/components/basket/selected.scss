@@ -98,8 +98,12 @@
     white-space: nowrap;
 }
 
+.selected__conteiner {
+    display: flex;
+}
+
 @media (min-width: 1021px) {
     .selected {
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 }

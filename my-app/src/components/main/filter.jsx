@@ -1,20 +1,20 @@
 import React, { useEffect }  from 'react';
 import {connect} from 'react-redux'
-import {getFilterPrice, getFilterStrings, getFilterType, setFilter, setOffersFilter, setPage, setStrings } from '../../store/action';
+import {getFilterPrice, getFilterStrings, getFilterType, setFilter, setOffersFilter, setPage, setStringSix, setStringFour, setStringSeven, setStringTwelve } from '../../store/action';
 import PropTypes from 'prop-types'
 
 const MIN_PRISE = 1
 const MAX_PRISE = 35000
 
 const Filter = (props) => {
-    const {offers, filter, setFilter, setPage, getFilterPrice, getFilterType, setStrings, strings, getFilterStrings, four, six, seven, twelve} = props
+    const {offers, filter, setFilter, setPage, getFilterPrice, getFilterType, setStrings, strings, getFilterStrings, four, six, seven, twelve, fourActive, sixActive, sevenActive, twelveActive, setStringsFour, setStringsSix, setStringsSeven, setStringsTwelve} = props
 
     useEffect(() => {
         setPage(1)
         getFilterPrice()
         getFilterType()
         getFilterStrings()
-    },[filter, offers, setPage, strings, getFilterStrings, getFilterType, getFilterPrice])
+    },[filter, offers, setPage, getFilterStrings, getFilterType, getFilterPrice])
 
     const onChangeMinPrice = (event) => {
         let number = event.target.value.replace(/[A-Za-zА-Яа-я -]/g, '')
@@ -82,41 +82,29 @@ const Filter = (props) => {
     }
 
     const handleChangeFourClick = (event) => {
-        setStrings({
-            ...strings,
-            four: event.target.checked
-        })
+        setStringsFour(event.target.checked)
     }
 
     const handleChangeSixClick = (event) => {
-        setStrings({
-            ...strings,
-            six: event.target.checked
-        })
+        setStringsSix(event.target.checked)
     }
 
     const handleChangeSevenClick = (event) => {
-        setStrings({
-            ...strings,
-            seven: event.target.checked
-        })
+        setStringsSeven(event.target.checked)
     }
 
     const handleChangeTwelveClick = (event) => {
-        setStrings({
-            ...strings,
-            twelve: event.target.checked
-        })
+        setStringsTwelve(event.target.checked)
     }
 
     const getClassTypeAcoustics = filter.acoustics ? 'filter__type-text filter__type-text--active' : 'filter__type-text'
     const getClassTypeElectro = filter.electro ? 'filter__type-text filter__type-text--active' : 'filter__type-text'
     const getClassTypeUkulele = filter.ukulele ? 'filter__type-text filter__type-text--active' : 'filter__type-text'
 
-    const getClassTypeFour = strings.four ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
-    const getClassTypeSix = strings.six ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
-    const getClassTypeSeven = strings.seven ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
-    const getClassTypeTwelve = strings.twelve ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
+    const getClassTypeFour = fourActive ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
+    const getClassTypeSix = sixActive ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
+    const getClassTypeSeven = sevenActive ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
+    const getClassTypeTwelve = twelveActive ? 'filter__amount-text filter__amount-text--active' : 'filter__amount-text'
 
     const getInputFour = () => {
         if(four) {
@@ -276,11 +264,14 @@ Filter.propTypes = {
 const mapStateToProps = (state) => ({
     offers: state.filters.offers,
     filter: state.filters.filter,
-    strings: state.filters.stringsActive,
     four: state.filters.four,
     six: state.filters.six,
     seven: state.filters.seven,
     twelve: state.filters.twelve,
+    fourActive: state.filters.fourActive,
+    sixActive: state.filters.sixActive,
+    sevenActive: state.filters.sevenActive,
+    twelveActive: state.filters.twelveActive,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -302,8 +293,17 @@ const mapDispatchToProps = (dispatch) => ({
     getFilterStrings() {
         dispatch(getFilterStrings())
     },
-    setStrings(bool) {
-        dispatch(setStrings(bool))
+    setStringsFour(bool) {
+        dispatch(setStringFour(bool))
+    },
+    setStringsSix(bool) {
+        dispatch(setStringSix(bool))
+    },
+    setStringsSeven(bool) {
+        dispatch(setStringSeven(bool))
+    },
+    setStringsTwelve(bool) {
+        dispatch(setStringTwelve(bool))
     }
 })
 

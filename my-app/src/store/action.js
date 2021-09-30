@@ -18,7 +18,10 @@ export const ActionType = {
     FILTER_PRICE: 'main/catalog-filter-price',
     FILTER_TYPE: 'main/catalog-filter-type',
     FILTER_STRINGS: 'main/catalog-filter-strings',
-    STRINGS: 'main/catalog-strings',
+    STRINGS_FOUR: 'main/catalog-stringfour',
+    STRINGS_SIX: 'main/catalog-stringsix',
+    STRINGS_SEVEN: 'main/catalog-stringseven',
+    STRINGS_TWELVE: 'main/catalog-stringstwelve',
   };
 
   
@@ -114,7 +117,22 @@ export const getFilterStrings = () => ({
     type: ActionType.FILTER_STRINGS
 })
 
-export const setStrings = (bool) => ({
-    type: ActionType.STRINGS,
+export const setStringSix = (bool) => ({
+    type: ActionType.STRINGS_SIX,
+    payload: bool
+})
+
+export const setStringSeven = (bool) => ({
+    type: ActionType.STRINGS_SEVEN,
+    payload: bool
+})
+
+export const setStringFour = (bool) => ({
+    type: ActionType.STRINGS_FOUR,
+    payload: bool
+})
+
+export const setStringTwelve = (bool) => ({
+    type: ActionType.STRINGS_TWELVE,
     payload: bool
 })

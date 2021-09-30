@@ -66,12 +66,27 @@ const Catalog = (props) => {
         }
     }
 
+    const getSpace = (index) => {
+        if (index === 0 || index === 1 || index === 3 || index === 4 || index === 6 || index === 7) {
+            return(
+                <div></div>
+            )
+        }
+    }
+
     const getOffers = () => {
         if (offers.length === NUMBER.ZERO) {
             return(<></>)
         } else {
             return(
-                offers[page - NUMBER.ONE].map((offer, index) => <OfferComponent key={offer + index} offer={offers[page - NUMBER.ONE][index]} />)
+                offers[page - NUMBER.ONE].map((offer, index) => {
+                    return(
+                        <>
+                            <OfferComponent key={offer + index} offer={offers[page - NUMBER.ONE][index]} />
+                            {getSpace(index)}
+                        </>
+                    )
+                })
             )
         }
     }

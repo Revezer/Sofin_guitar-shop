@@ -85,21 +85,25 @@ const Selected = (props) => {
     return(
         <div className='basket__selected selected'>
             <button className='selected__delete' onClick={handleOpenDeletePopUpClick}></button>
-            <img className='selected__img' src={getGuitagImg()} alt='фото гитары'></img>
-            <div className='selected__info-conteiner'>
-                <h3 className='selected__name'>{offer.name}</h3>
-                <div className='selected__text-container'>
-                    <span className='selected__info'>Артикул: {offer.code}</span>
-                    <span className='selected__info'>{offer.type}, {offer.strings} струнная </span>
+            <div className='selected__conteiner'>
+                <img className='selected__img' src={getGuitagImg()} alt='фото гитары'></img>
+                <div className='selected__info-conteiner'>
+                    <h3 className='selected__name'>{offer.name}</h3>
+                    <div className='selected__text-container'>
+                        <span className='selected__info'>Артикул: {offer.code}</span>
+                        <span className='selected__info'>{offer.type}, {offer.strings} струнная </span>
+                    </div>
                 </div>
             </div>
-            <span className='selected__price'>{getNumberWithSpaces(offer.price)} ₽</span>
-            <div className='selected__buttons'>
-                <button className='selected__button' onClick={handleMinusButtonClick}>-</button>
-                <input className='selected__number' value={offer.amount} onChange={handleInputChange}></input>
-                <button className='selected__button' onClick={handlePlusButtonClick}>+</button>
+            <div className='selected__conteiner'>
+                <span className='selected__price'>{getNumberWithSpaces(offer.price)} ₽</span>
+                <div className='selected__buttons'>
+                    <button className='selected__button' onClick={handleMinusButtonClick}>-</button>
+                    <input className='selected__number' value={offer.amount} onChange={handleInputChange}></input>
+                    <button className='selected__button' onClick={handlePlusButtonClick}>+</button>
+                </div>
+                <span className='selected__total'>{getNumberWithSpaces(offer.price * offer.amount)} ₽</span>
             </div>
-            <span className='selected__total'>{getNumberWithSpaces(offer.price * offer.amount)} ₽</span>
         </div>
     )
 }

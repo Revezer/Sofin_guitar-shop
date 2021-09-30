@@ -13,7 +13,7 @@ const Footer = () => {
                     <img className='footer__logo' src={Logo} alt='логотип'></img>
                 </Link>
                 <ul className='footer__social social'>
-                    <li>
+                    <li className='footer__social-facebook'>
                         <a href='#'>
                             <img src={Facebook} alt='иконка facebook'/>
                         </a>

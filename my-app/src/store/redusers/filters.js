@@ -14,12 +14,10 @@ const initialState = {
     six: true,
     seven: true,
     twelve: true,
-    stringsActive: {
-        four: false,
-        six: false,
-        seven: false,
-        twelve: false,
-    },
+    fourActive: false,
+    sixActive: false,
+    sevenActive: false,
+    twelveActive: false,
     filterOffers: offers,
     addedOffers: [],
     totalPrice: 0,
@@ -88,12 +86,10 @@ export default function counter(state = initialState, action) {
                         six: true,
                         seven: true,
                         twelve: false,
-                        stringsActive: {
-                            four: state.stringsActive.four,
-                            six: state.stringsActive.six,
-                            seven: state.stringsActive.seven,
-                            twelve: false,
-                        },
+                            fourActive: state.fourActive,
+                            sixActive: state.sixActive,
+                            sevenActive: state.sevenActive,
+                            twelveActive: false,
                         filterOffers: state.filterOffers.filter(offer => offer.type === 'электрогитара' || offer.type === 'укулеле')
                     }
                 case state.filter.acoustics:
@@ -103,12 +99,10 @@ export default function counter(state = initialState, action) {
                         six: true,
                         seven: true,
                         twelve: true,
-                        stringsActive: {
-                            four: false,
-                            six: state.stringsActive.six,
-                            seven: state.stringsActive.seven,
-                            twelve: state.stringsActive.twelve,
-                        },
+                            fourActive: false,
+                            sixActive: state.sixActive,
+                            sevenActive: state.sevenActive,
+                            twelveActive: state.twelveActive,
                         filterOffers: state.filterOffers.slice().filter(offer => offer.type === 'акустическая гитара')
                     }
                 case state.filter.electro:
@@ -118,12 +112,10 @@ export default function counter(state = initialState, action) {
                         six: true,
                         seven: true,
                         twelve: false,
-                        stringsActive: {
-                            four: state.stringsActive.four,
-                            six: state.stringsActive.six,
-                            seven: state.stringsActive.seven,
-                            twelve: false,
-                        },
+                            fourActive: state.fourActive,
+                            sixActive: state.sixActive,
+                            sevenActive: state.sevenActive,
+                            twelveActive: false,
                         filterOffers: state.filterOffers.filter(offer => offer.type === 'электрогитара')
                     }
                 case state.filter.ukulele:
@@ -133,12 +125,10 @@ export default function counter(state = initialState, action) {
                         six: false,
                         seven: false,
                         twelve: false,
-                        stringsActive: {
-                            four: state.stringsActive.four,
-                            six: false,
-                            seven: false,
-                            twelve: false,
-                        },
+                            fourActive: state.fourActive,
+                            sixActive: false,
+                            sevenActive: false,
+                            twelveActive: false,
                         filterOffers: state.filterOffers.filter(offer => offer.type === 'укулеле')
                     }
                 default:
@@ -153,33 +143,48 @@ export default function counter(state = initialState, action) {
         case ActionType.FILTER_STRINGS:
             let filterOffersString = []
             let temporaryOffers = []
-            if(state.stringsActive.four) {
+            if(state.fourActive) {
                 temporaryOffers = state.filterOffers.filter(offer => offer.strings === 4)
                 Array.prototype.push.apply(filterOffersString, temporaryOffers);
             }
-            if (state.stringsActive.six) {
+            if (state.sixActive) {
                 temporaryOffers = state.filterOffers.filter(offer => offer.strings === 6)
                 Array.prototype.push.apply(filterOffersString, temporaryOffers);
             }
-            if (state.stringsActive.seven) {
+            if (state.sevenActive) {
                 temporaryOffers = state.filterOffers.filter(offer => offer.strings === 7)
                 Array.prototype.push.apply(filterOffersString, temporaryOffers);
             }
-            if (state.stringsActive.twelve) {
+            if (state.twelveActive) {
                 temporaryOffers = state.filterOffers.filter(offer => offer.strings === 12)
                 Array.prototype.push.apply(filterOffersString, temporaryOffers);
             }
-            if(state.stringsActive.four === false && state.stringsActive.six === false && state.stringsActive.seven === false && state.stringsActive.twelve === false) {
+            if(state.fourActive === false && state.sixActive === false && state.sevenActive === false && state.twelveActive === false) {
                 filterOffersString = state.filterOffers
             }
             return {
                 ...state,
                 filterOffers: filterOffersString
             }
-        case ActionType.STRINGS:
+        case ActionType.STRINGS_FOUR:
             return {
                 ...state,
-                stringsActive: action.payload
+                fourActive: action.payload
+            }
+        case ActionType.STRINGS_SIX:
+            return {
+                ...state,
+                sixActive: action.payload
+            }
+        case ActionType.STRINGS_SEVEN:
+            return {
+                ...state,
+                sevenActive: action.payload
+            }
+        case ActionType.STRINGS_TWELVE:
+            return {
+                ...state,
+                twelveActive: action.payload
             }
         default: return state
     }

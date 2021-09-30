@@ -12,6 +12,8 @@
     letter-spacing: 1px;
     margin-left: 15px;
     color: black;
+    height: 22px;
+    white-space: nowrap;
 }
 
 .sorting__button-down:active, .sorting__button-money:active, .sorting__button-up:active, .sorting__button-popularity:active {
@@ -30,6 +32,8 @@
     letter-spacing: 1.2px;
     margin-left: 27px;
     margin-top: 1px;
+    height: 22px;
+    white-space: nowrap;
 }
 
 .sorting__button-popularity--noactive {
@@ -61,4 +65,8 @@
 
 .sorting__button-down--noactive {
     background-image: url('../../img/arrow-down-noactive.svg');
+}
+
+.sorting__conteiner {
+    display: flex;
 }
