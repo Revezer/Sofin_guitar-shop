@@ -47,6 +47,8 @@
     background-color: white;
     border: none;
     background-image: url('../../img/arrow-up.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .sorting__button-up--noactive {
@@ -61,6 +63,8 @@
     background-image: url('../../img/arrow-down.svg');
     margin-left: 5px;
     margin-right: 48px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .sorting__button-down--noactive {
