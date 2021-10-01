@@ -134,3 +134,13 @@ button {
 .openPopUp {
     overflow:  hidden;
 }
+
+@media (min-width: 1021px) {
+    .main__catalog {
+        grid-area: catalog;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        grid-row-gap: 30px;
+        margin-right: 41px;
+    }
+}

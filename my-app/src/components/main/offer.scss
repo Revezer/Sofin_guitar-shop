@@ -17,6 +17,7 @@
     margin-left: 13px;
     margin-top: 9px;
     display: flex;
+    width: 80px;
 }
 
 .offer__number {
@@ -85,4 +86,12 @@
 .offer__buy-icon {
     margin-top: 3px;
     margin-right: 6px;
+}
+
+@media (min-width: 1021px) {
+    .offer__stars {
+        margin-left: auto;
+        margin-right: auto;
+        width: 192px;
+    }
 }
