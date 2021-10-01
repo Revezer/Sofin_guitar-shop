@@ -16,12 +16,8 @@ const Sorting = (props) => {
             if(sortUp === false && sortDown === false) {
                 setSortUp(true)
             }
+            setSortPrice(!sortMoney)
         }
-        if(sortMoney) {
-            setSortUp(false)
-            setSortDown(false)
-        }
-        setSortPrice(!sortMoney)
     }
 
     const handleSwichPopularityClick = () => {
@@ -30,12 +26,8 @@ const Sorting = (props) => {
             if(sortUp === false && sortDown === false) {
                 setSortUp(true)
             }
+            setSortPopularity(!sortPopularity)
         }
-        if(sortPopularity) {
-            setSortUp(false)
-            setSortDown(false)
-        }
-        setSortPopularity(!sortPopularity)
     }
 
     const handleSwichUpClick = () => {
@@ -44,12 +36,8 @@ const Sorting = (props) => {
             if(sortMoney === false && sortPopularity === false) {
                 setSortPrice(true)
             }
+            setSortUp(!sortUp)
         }
-        if(sortUp) {
-            setSortPrice(false)
-            setSortPopularity(false)
-        }
-        setSortUp(!sortUp)
     }
 
     const handleSwichDownClick = () => {
@@ -58,12 +46,8 @@ const Sorting = (props) => {
             if(sortMoney === false && sortPopularity === false) {
                 setSortPrice(true)
             }
+            setSortDown(!sortDown)
         }
-        if(sortDown) {
-            setSortPrice(false)
-            setSortPopularity(false)
-        }
-        setSortDown(!sortDown)
     }
 
     const setMoneyClass = sortMoney ? 'sorting__button-money' : 'sorting__button-money sorting__button-money--noactive'
